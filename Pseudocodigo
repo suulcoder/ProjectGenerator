@@ -1,0 +1,50 @@
+Pseudocodigo
+  Preguntar a usuario por parametros de busqueda:
+      Curso
+      Tiempo a invertir
+      Complejidad
+      Recursos con los que no se cuenta
+      Recursos con los que se cuenta
+  Si es la primera vez ejecutandose:
+    Establecer una lista "favoritos" con nodo 0 igual a ProjectGenerator conectado a todos los cursos
+  De otro modo:
+    Obtener una lista de los nodos favoritos que pertenecen al curso solicitado por el usuario, ordenados de la siguiente manera:
+      Por calificación
+      Por visitas  
+    Si no existe ninguno Establecer una lista "favoritos" con nodo 0 igual a ProjectGenerator conectado a todos los cursos
+  Para cada elemento de la lista "favoritos":
+        Extraer todos los proyectos que tienen una conexión con el mismo curso y agregarlos a la lista recomendaciones dentro de una Relación donde posea 15 dentro del atributo valor
+        Extraer todos los proyectos que tienen una conexión con el tiempo a invertir, y agregarlos a la lista recomendaciones:
+          Si la Relación ya existe sumar 10 al atributo valor
+          De otro modo 
+              Agregar la relación con 10 en el atributo valor
+          Si no existe ninguna conexión con el tiempo a invertir en el nodo analizado, extraer todos los proyectos que tienen una conexión con el tiempo invertido, de los nodos dentro de las Relaciones en la lista recomendaciones
+                Agregar a la lista recomendaciones
+                Si la Relación ya existe sumar 5 al atributo valor
+                    De otro modo 
+                        Agregar la relación con 5 en el atributo valor
+        Extraer todos los proyectos que tienen una conexion con la complejidad establecida con el usuario.
+           Si no existe ninguna conexión entre el nodo analizado y la complejidad que solicito el usuario:
+              Extraer todos los nodos que tengan una conexión con esta complejidad y agregarlos a la lista recomendaciones
+                   Si la Relación ya existe sumar 2 al atributo valor
+                    De otro modo 
+                        Agregar la relación con 2 en el atributo valor
+           Si existe agregar a la lista recomendaciones
+              Si la Relación ya existe sumar 5 al atributo valor
+                    De otro modo 
+                        Agregar la relación con 5 en el atributo valor
+        Extraer todos los proyectos que tienen una conexión con los recursos establecidos por el usuario
+              Si no existe ninguna conexión entre el nodo analizado y el recurso que solicito el usuario:
+                Extrear todos los nodos que tengan una conexión con este recurso y agregarlo a la lista recomendaciones
+                    Si ya existe sumar 1 al atributo valor
+                    De otro modo agregar la Relacion con 1 en el atributo valor
+              Si existe agregar a la lista recomendaciones
+                  Si existe la Relacion sumar 2 al atributo valor
+                  De otro modo agregar la Relacion con 2 en el atributo valor
+        Eliminar todas las relaciones dentro de la lista recomendaciones que tienen una conexion con los recursos con los que no se cuenta
+        Mostrar al usuario todos las Relaciones cuyos valores sean mayores o iguales a 15 ordenadas por valor
+        Si el usuario elije un elemento sumar visitas del usuario
+            Si el califica agregar esta calificacion y promediarla con las locales
+        Si el usuario elije ver mas recomendaciones desplegar toda la lista recomendaciones
+       
+       
