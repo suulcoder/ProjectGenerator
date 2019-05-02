@@ -8,9 +8,9 @@ Pseudocodigo
     Si no existe ninguno Establecer una lista "favoritos" con nodo 0 igual a ProjectGenerator conectado a todos los cursos
   Para cada elemento de la lista "favoritos":
         Extraer todos los proyectos que tienen una conexión con el mismo curso y agregarlos a la lista recomendaciones dentro de una Relación donde posea 15 dentro del atributo valor
-        Si el tiempo es igual al que solicito el usuario sumar 10 al atributo valor
-        Si el la complejidad es igual a la que solicito el usuario sumar 5 al atributo valor
-        Si la cantidad de integrantes es igual a la que solicito el usuario sumar 2 al atributo valor
+        Si el tiempo es igual al que solicito el usuario en ocaciones anteriores sumar 10 al atributo valor
+        Si el la complejidad es igual a la que solicito el usuario en ocasiones anteriores sumar 5 al atributo valor
+        Si la cantidad de integrantes es igual a la que solicito el usuario en ocasiones anteriores sumar 2 al atributo valor
         Extraer todos los proyectos que tienen una conexión con los recursos establecidos por el usuario
           Extrear todos los nodos que tengan una conexión con este recurso y agregarlo a la lista recomendaciones
               Si ya existe sumar 10 al atributo valor
@@ -23,4 +23,4 @@ Pseudocodigo
         Si el usuario elije un elemento sumar visitas del usuario
             Si el califica agregar esta calificacion y promediarla con las locales
         Si el usuario elije ver mas recomendaciones desplegar toda la lista recomendaciones
-        Si el usuario elije buscar, mostrar al usuario los parametros de busqueda para mostrar los mismos
+        Si el usuario elije buscar, mostrar al usuario los parametros de busqueda para mostrar los mismos. y agregar a una base de datos para poder obtener mejores recomendaciones en el futuro
