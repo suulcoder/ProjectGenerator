@@ -1,0 +1,39 @@
+CREATE (ProjectGenerator:Project {title: "Project Generator",description:"This project is about the creation of a software to generate projects. You need to know how to code.", time:11, complexity:"medium", integrants:2 })
+CREATE (SunRotation:Project {title: "Sun Rotation",description:"Calculate the angular velocity of the sun, coding", time:7, complexity:"low", integrants:3 })
+CREATE (Behaviorism:Project {title: "Behaviorism",description:"Experiment with people and theory of behaviorism", time:210, complexity:"easy", integrants:1})
+CREATE (Gestalt:Project {title: "Gestalt",description:"Experiment to avoid extintion", time:2102400000, complexity:"hard", integrants:55})
+CREATE (Avengers:Project {title: "Avengers",description:"Social experiment where a superhero is near of you", time:210, complexity:"hard", integrants:5})
+CREATE (CACAP:Project {title: "CACAP",description:"Centro de Administracion y Control Automatico de Papel", time:210, complexity:"hard", integrants:5})
+
+CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
+CREATE (Fruit:Resource {title: "fruit", specifications: "A fresh fruit"})
+CREATE (Vegetable:Resource {title: "vegetable", specifications: "A fresh vegetable"})
+CREATE (Subjects:Resource {title: "subjects", specifications: "Humans for investigation"})
+CREATE (Custom:Resource {title: "custom", specifications: "a custom or suit"})
+CREATE (Raspberry:Resource {title: "raspberry", specifications: "a mini-computer with raspberry"})
+
+CREATE (DataStructure:Course {title: "Data Structure",Departament: "Computer Science"})
+CREATE (Physics2:Course {title: "Physics 2",Departament: "Physics"})
+CREATE (Psicology:Course {title: "Basic psicology",Departament:"Psicology"})
+CREATE (Humanity:Course {title: "Humanity Sciences",Departament:"Social studies"})
+CREATE (Code:Course {title: "Basic coding",Departament:"Computer Sciences"})
+
+CREATE
+	(ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
+	(SunRotation)-[:PROJECT_FOR]->(Physics2),
+	(SunRotation)-[:PROJECT_FOR]->(DataStructure),
+	(SunRotation)-[:PROJECT_FOR]->(Code),
+	(Gestalt)-[:USE_A]->(Computer),
+	(Gestalt)-[:PROJECT_FOR]->(Humanity),
+	(SunRotation)-[:USE_A]->(Computer),
+	(Gestalt)-[:USE_A]->(Subjects),
+	(ProjectGenerator)-[:USE_A]->(Computer),
+	(Behaviorism)-[:PROJECT_FOR]->(Psicology),
+	(Behaviorism)-[:USE_A]->(Vegetable),
+	(Behaviorism)-[:USE_A]->(Fruit),
+	(Behaviorism)-[:USE_A]->(Subjects),
+	(Avengers)-[:USE_A]->(Subjects),
+	(Avengers)-[:PROJECT_FOR]->(Psicology),
+	(Avengers)-[:USE_A]->(Custom),
+	(CACAP)-[:USE_A]->(Raspberry),
+	(CACAP)-[:PROJECT_FOR]->(Code)
