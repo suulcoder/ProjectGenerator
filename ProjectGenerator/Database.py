@@ -144,6 +144,7 @@ class Database(object):
             CREATE (Humanity:Course {title: "Humanity Sciences",Departament:"Social studies"})
             CREATE (Code:Course {title: "Basic coding",Departament:"Computer Sciences"})
 
+            CREATE (User:User {name: "Default",password: "password"})
             CREATE
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
                 (SunRotation)-[:PROJECT_FOR]->(Physics2),
