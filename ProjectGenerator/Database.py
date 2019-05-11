@@ -1,11 +1,16 @@
 """
-Projecto Neo4j
+Class Databae will be util to make conection with Neo4J 
 Project Generator
+Universidad del Valle de Guatemala
+Saul Contreras
+Michele Benvenuto
+Jennifer
 """
+
 from neo4j import GraphDatabase, basic_auth
 
-#---------------------------------------------------------------------------------------------------
 class Database(object):
+
     """Set database driver"""
     def __init__(self, uri,user,password):
         self._driver = GraphDatabase.driver(uri, auth=(user, password))        
@@ -86,6 +91,90 @@ class Database(object):
         with self._driver.session() as session: 
             return session.write_transaction(self._getNode,result,value)        
 
+    """This method is useful to get all nodes that are connected by the same link to a node m connected with the same link to a node of reference
+    nodeType: it receives the type of node of reference, must be an string and its first letter must be uppercase
+    key: it receives a key or a reference that the node has. 
+    value: it recives de value of the reference key.
+    link: receives the link name, must be a string without spaces
+    """
+    def getNodesByOther(self,nodeType,key,value,link):
+        result= "MATCH (a:" + nodeType + ")\nWHERE a." + key + "=$value\nMATCH (a)-[:" + link + "]->(m)<-[:" + link + "]-(r)\nRETURN r"
+        with self._driver.session() as session: 
+            return session.write_transaction(self._getNodes,result,value)
+
+    """This method is useful to get all nodes connect to one of reference with an specific link
+    nodeType: it receives the type of node of reference, must be an string and its first letter must be uppercase
+    key: it receives a key or a reference that the node has. 
+    value: it recives de value of the reference key.
+    link: receives the link name, must be a string without spaces"""
+    def getNodesByLink(self,nodeType,key,value,link):
+        result= "MATCH (a:" + nodeType + ")\nWHERE a." + key + "=$value\nMATCH (a)-[:" + link + "]->(m)\nRETURN m"
+        with self._driver.session() as session: 
+            return session.write_transaction(self._getNodes,result,value)
+
+    """This method is used two now if there ara nodes on the database.
+    It will return None the database is empty"""
+    def getDefault(self):
+        result = "MATCH (n) return n"
+        with self._driver.session() as session: 
+            resultado = session.write_transaction(self._Default,result)        
+            return resultado
+
+    """This method is used two set the default database, you should change the string result two change it. The cod must be in Cypher"""
+    def setDefault(self):
+        if (self.getDefault().single()==None):#We check if the database is empty
+            result = """
+            CREATE (ProjectGenerator:Project {title: "Project Generator",description:"This project is about the creation of a software to generate projects. You need to know how to code.", time:11, complexity:"medium", integrants:2 })
+            CREATE (SunRotation:Project {title: "Sun Rotation",description:"Calculate the angular velocity of the sun, coding", time:7, complexity:"low", integrants:3 })
+            CREATE (Behaviorism:Project {title: "Behaviorism",description:"Experiment with people and theory of behaviorism", time:210, complexity:"easy", integrants:1})
+            CREATE (Gestalt:Project {title: "Gestalt",description:"Experiment to avoid extintion", time:2102400000, complexity:"hard", integrants:55})
+            CREATE (Avengers:Project {title: "Avengers",description:"Social experiment where a superhero is near of you", time:210, complexity:"hard", integrants:5})
+            CREATE (CACAP:Project {title: "CACAP",description:"Centro de Administracion y Control Automatico de Papel", time:210, complexity:"hard", integrants:5})
+
+            CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
+            CREATE (Fruit:Resource {title: "fruit", specifications: "A fresh fruit"})
+            CREATE (Vegetable:Resource {title: "vegetable", specifications: "A fresh vegetable"})
+            CREATE (Subjects:Resource {title: "subjects", specifications: "Humans for investigation"})
+            CREATE (Custom:Resource {title: "custom", specifications: "a custom or suit"})
+            CREATE (Raspberry:Resource {title: "raspberry", specifications: "a mini-computer with raspberry"})
+
+            CREATE (DataStructure:Course {title: "Data Structure",Departament: "Computer Science"})
+            CREATE (Physics2:Course {title: "Physics 2",Departament: "Physics"})
+            CREATE (Psicology:Course {title: "Basic psicology",Departament:"Psicology"})
+            CREATE (Humanity:Course {title: "Humanity Sciences",Departament:"Social studies"})
+            CREATE (Code:Course {title: "Basic coding",Departament:"Computer Sciences"})
+
+            CREATE
+                (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
+                (SunRotation)-[:PROJECT_FOR]->(Physics2),
+                (SunRotation)-[:PROJECT_FOR]->(DataStructure),
+                (SunRotation)-[:PROJECT_FOR]->(Code),
+                (Gestalt)-[:USE_A]->(Computer),
+                (Gestalt)-[:PROJECT_FOR]->(Humanity),
+                (SunRotation)-[:USE_A]->(Computer),
+                (Gestalt)-[:USE_A]->(Subjects),
+                (ProjectGenerator)-[:USE_A]->(Computer),
+                (Behaviorism)-[:PROJECT_FOR]->(Psicology),
+                (Behaviorism)-[:USE_A]->(Vegetable),
+                (Behaviorism)-[:USE_A]->(Fruit),
+                (Behaviorism)-[:USE_A]->(Subjects),
+                (Avengers)-[:USE_A]->(Subjects),
+                (Avengers)-[:PROJECT_FOR]->(Psicology),
+                (Avengers)-[:USE_A]->(Custom),
+                (CACAP)-[:USE_A]->(Raspberry),
+                (CACAP)-[:PROJECT_FOR]->(Code)"""
+            with self._driver.session() as session: 
+                return session.write_transaction(self._Default,result)
+
+
+    @staticmethod
+    def _Default(tx,result):
+        return tx.run(result)
+
+    @staticmethod
+    def _getNodes(tx,result,value):
+        return tx.run(result,value=value)
+
     @staticmethod
     def _getNode(tx,result,value):
         return tx.run(result,value=value)
@@ -110,47 +199,3 @@ class Database(object):
     @staticmethod
     def _create(tx,arguments,result):
         result = tx.run(result,arguments=arguments)
-        
-#---------------------------------------------------------------------------------------------------
-class Project(object):
-    """docstring for Proje"""
-    def __init__(self, title,description,_id):
-        self._id = _id + ":Project"
-        self.title = title
-        self.description = description
-
-#---------------------------------------------------------------------------------------------------
-class Resource(object):
-    """docstring for Resource"""
-    def __init__(self, title,specification,_id):
-        self._id = _id + ":Resource"
-        self.title =title
-        self.specification = specification
-        
-#---------------------------------------------------------------------------------------------------
-class User(object):
-    """docstring for User"""
-    def __init__(self, name,password,_id):
-        self._id = _id+":User"
-        self.name = name
-        self.password = password
-        
-#---------------------------------------------------------------------------------------------------
-class Topic(object):
-    """docstring for Tema"""
-    def __init__(self, title,departament,_id):
-        self._id = _id
-        self.title = title
-        self.departament = departament
-
-#---------------------------------------------------------------------------------------------------
-project = Project("second","Confidencial","proyecto")
-db = Database("bolt://localhost:7687", "SuulCoder","password")
-#db.write("second","Resource",{"title":"dfa","description":project.description})
-#db.write("id","Project",{"title":project.title,"description":project.description})
-#db.link("Project","Resource","title",project.title,"title","dfa","do_with")
-#db.deleteLink("Project","Resource","title",project.title,"title","dfa","do_with")
-#db.delete("Resource","title","dfa")
-#db.upgrade("Resource","title","dfa","prueba")
-print(db.getNode("Project","title",project.title).single())
-db.close()
