@@ -144,8 +144,17 @@ class Database(object):
             CREATE (Humanity:Course {title: "Humanity Sciences",Departament:"Social studies"})
             CREATE (Code:Course {title: "Basic coding",Departament:"Computer Sciences"})
 
-            CREATE (User:User {name: "Default",password: "password"})
+            CREATE (User:User {name: "Default",password: "àÂææîÞäÈ"})
+            
             CREATE
+                (User)-[:HAS_DONE]->(ProjectGenerator),
+                (User)-[:HAS_DONE]->(Gestalt),
+                (User)-[:HAS_LIKED]->(SunRotation),
+                (User)-[:HAS_LIKED]->(ProjectGenerator),
+                (User)-[:HAS_VIEWED]->(Gestalt),
+                (User)-[:HAS_VIEWED]->(CACAP),
+                (User)-[:HAS_VIEWED]->(ProjectGenerator),
+                (User)-[:HAS_VIEWED]->(SunRotation), 
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
                 (SunRotation)-[:PROJECT_FOR]->(Physics2),
                 (SunRotation)-[:PROJECT_FOR]->(DataStructure),

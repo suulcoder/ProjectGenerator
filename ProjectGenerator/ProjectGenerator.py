@@ -1,18 +1,42 @@
+"""
+Class ProjectGenerator
+Project Generator
+Universidad del Valle de Guatemala
+Saul Contreras
+Michele Benvenuto
+Jennifer
+"""
 from Database import Database
-from Models import *
+class ProjectGenerator(object):
 
-project = Project("second","Confidencial","proyecto")
-db = Database("bolt://localhost:7687", "Default","password")
-#db.write("second","Resource",{"title":"dfa","description":project.description})
-#db.write("id","Project",{"title":project.title,"description":project.description})
-#db.link("Project","Resource","title",project.title,"title","dfa","do_with")
-#db.deleteLink("Project","Resource","title",project.title,"title","dfa","do_with")
-#db.delete("Resource","title","dfa")
-#db.upgrade("Resource","title","dfa","prueba")
-#print(db.getNode("Project","titl",project.title).single())
-db.setDefault()
-result = db.getNodesByOther("Project","title","Avengers","USE_A")
-result = result.values()#Convert to a list
-for node in result:#Print nodes in the result
-	print(node[0]["title"]) #The name of the atribute is setted in the second []
-db.close()
+	def __init__(self):
+		self.db = Database("bolt://localhost:7687", "Default","password")					#Set Conection to Database
+		self.db.setDefault()																		#Set default Database			
+
+	def encriptPassword(self,password):														#Encript Password
+		newPassword = ""
+		for letter in password:
+			newPassword = newPassword +  chr(ord(letter) + ord(letter))                     #Ascii code * 2
+		return newPassword
+
+	def unencriptPassword(self,password):
+		newPassword = ""
+		for letter in password:
+			newPassword = newPassword +  chr(int(ord(letter)/2))									#Ascii code / 2
+		return newPassword		
+
+	def checkUser(self,user,password):
+		try:																						#If user doesn´t exist it will show an excpetion
+			passwordToCheck = self.db.getNode("User","name",user).single()[0]["password"]
+		except:
+			return False
+		return(self.unencriptPassword(passwordToCheck)==password)
+
+	def writeUser(self,user,password):
+		if(self.db.getNode("User","name",user).single()==None):
+			self.db.write("user","User",{"name":user,"password":self.encriptPassword(password)})
+			print("writen")
+			return True
+		return False
+
+

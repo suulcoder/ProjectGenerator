@@ -11,10 +11,12 @@ Jennifer
 #---------------------------------------------------------------------------------------------------
 class Project(object):
     """Project has tittle and description"""
-    def __init__(self, title,description,_id):
+    def __init__(self, title,description,_id,resource,topic):
         self._id = _id + ":Project"
         self.title = title
         self.description = description
+        self.resource = resource
+        self.topic = topic
 
 #---------------------------------------------------------------------------------------------------
 class Resource(object):
