@@ -43,4 +43,7 @@ class ProjectGenerator(object):
 			return True
 		return False
 
+	def showNodes(self):
+		return self.db.getAllType("Project")
+
 

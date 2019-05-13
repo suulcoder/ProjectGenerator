@@ -5,6 +5,11 @@ from ProjectGenerator import ProjectGenerator
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.uix.image import Image
+from kivy.uix.listview import ListView, ListItemButton
+from kivy.uix.boxlayout import BoxLayout
+from kivy.adapters.dictadapter import ListAdapter
+from kivy.uix.button import Button
+from kivy.properties import ObjectProperty
 
 #------------------------------------------------------------------------------------------------------------------------------
 class Start(Screen):
@@ -34,6 +39,30 @@ class Start(Screen):
 
 #------------------------------------------------------------------------------------------------------------------------------
 class Connected(Screen):
+	def show(self):
+		project = ProjectGenerator()
+		result = project.showNodes()
+		result = result.values()#Convert to a list
+		projects = []
+		for node in result:#Print nodes in the result
+			print(node[0]["title"])
+			projects.append(node[0]["title"]) #The name of the atribute is setted in the second []	
+		adapter = ListAdapter(data=projects,cls=ListItemButton)
+		self.ids.project_list.adapter = adapter
+
+	def recomend(self):
+		pass
+
+	def add(self):
+		pass
+
+	pass
+
+#------------------------------------------------------------------------------------------------------------------------------
+
+
+#------------------------------------------------------------------------------------------------------------------------------
+class ProjectListButton(ListItemButton):
 	pass
 
 #------------------------------------------------------------------------------------------------------------------------------

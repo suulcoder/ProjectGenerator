@@ -112,6 +112,13 @@ class Database(object):
         with self._driver.session() as session: 
             return session.write_transaction(self._getNodes,result,value)
 
+    """This method is useful to get all nodes from the same type
+    nodeType: receives the String of the node type"""
+    def getAllType(self,nodeType):
+        result= "MATCH (a:" + nodeType + ")\nRETURN a"
+        with self._driver.session() as session: 
+            return session.write_transaction(self._Default,result)        
+
     """This method is used two now if there ara nodes on the database.
     It will return None the database is empty"""
     def getDefault(self):

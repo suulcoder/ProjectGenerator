@@ -1,4 +1,6 @@
 #:kivy 1.0.9
+#:import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:import ListItemButton kivy.uix.listview.ListItemButton
 
 <Start>:    
     canvas:
@@ -80,8 +82,40 @@
             pos: 0,-50
             size: self.width, 80
 
-    BoxLayout:
+    BoxLayout
+        id: box_layout
         orientation: 'vertical'
-        padding: [70,50,70,50]
-        ListView:
-            item_strings: [str(index) for index in range(100)]
+        padding: [70,25,70,10]
+        spacing: 5
+
+        Image:
+            source: "image.png"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [70,70,70,70]
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: 'SHOW ALL'
+                font_size: 12
+                on_press: root.show()
+
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: 'RECOMENDATIONS FOR YOU'
+                font_size: 12
+                on_press: root.recomend()
+
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: '+ADD NODE'
+                font_size: 12
+                on_press: root.add()
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [70,0,70,0]
+            ListView:
+                id: project_list
+                adapter:
+                    ListAdapter(data=[],cls=ListItemButton)
