@@ -1,77 +1,87 @@
 #:kivy 1.0.9
 
 <Start>:    
-
     canvas:
         Color:
-            rgb: [0.97,0.07,0.07] 
+            rgb: [0.62,0.027,0.027] 
 
         Rectangle:
-            pos: 0,root.top - 120
-            size: self.width, 10
+            pos: 0,root.top-30
+            size: self.width, 80
 
         Rectangle:
-            pos: 0,root.top
-            size: self.width, 5 - 100
+            pos: 0,-50
+            size: self.width, 80
 
-        Rectangle:
-            pos: self.width/2-150,self.height/2-100
-            size: 300, 200
-    
-    Label:
-        font_size: 50  
-        center_x: root.width / 2
-        top: root.top
-        text: "Project Generator"   
-    
-    Button:
-        id: login
-        center_x: (root.width/2) - 50
-        top: root.top/2 - 60
-        size: 70,20
-        text: "LOGIN"
-        background_color: 0,0,0
-        on_press: root.login()
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [70,0,70,10]
+        spacing: 5
 
-    Button:
-        id: Signup
-        center_x: (root.width/2) + 50
-        top: root.top/2 - 60
-        size: 70,20
-        background_color: 0,0,0
-        text: "SIGN UP"
-        on_press: root.Sign()
+        BoxLayout:
+            Label:
+                text: 'PROJECT GENERATOR'
+                font_size: 30
 
-    TextInput:
-        id: user
-        multiline: False
-        center_x: root.width / 2
-        top: root.top/2 + 20
-        size: 250,30
-        hint_text: "USERNAME"
+        Image:
+            source: "image.png"
 
-    TextInput:
-        id: password
-        multiline: False
-        password: True
-        center_x: root.width / 2
-        top: root.top/2 - 20
-        size: 250,30
-        hint_text: "PASSWORD"
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [120,30,120,20]
 
-<Projects>:
+            TextInput:
+                hint_text: "USERNAME"
+                id: user
+                multiline:False
+                font_size: 14
+
+            TextInput:
+                hint_text: "PASSWORD"
+                id: password
+                multiline:False
+                password:True
+                font_size: 14
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [170,50,170,10]
+            
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: 'LOGIN'
+                font_size: 12
+                on_press: root.login()
+
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: 'SIGN UP'
+                font_size: 12
+                on_press: root.Sign()
+
+        BoxLayout:
+            Label:
+                id: defensive
+                text: ''
+                font_size: 10        
+
+
+<Connected>:
     canvas:
         Color:
-            rgb: [1,0,0] 
+            rgb: [0.62,0.027,0.027] 
 
         Rectangle:
-            pos: 0,root.top - 120
-            size: self.width, 10
+            pos: 0,root.top-30
+            size: self.width, 80
 
         Rectangle:
-            pos: 0,root.top
-            size: self.width, 5 - 100
+            pos: 0,-50
+            size: self.width, 80
 
-        Rectangle:
-            pos: self.width/2-150,self.height/2-100
-            size: 300, 200    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [70,50,70,50]
+        ListView:
+            item_strings: [str(index) for index in range(100)]

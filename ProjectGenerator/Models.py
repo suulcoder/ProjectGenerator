@@ -7,7 +7,6 @@ Michele Benvenuto
 Jennifer
 """
 
-
 #---------------------------------------------------------------------------------------------------
 class Project(object):
     """Project has tittle and description"""
