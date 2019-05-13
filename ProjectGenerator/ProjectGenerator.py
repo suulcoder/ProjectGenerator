@@ -46,4 +46,5 @@ class ProjectGenerator(object):
 	def showNodes(self):
 		return self.db.getAllType("Project")
 
-
+	def getRecomendations(self,user):
+		pass

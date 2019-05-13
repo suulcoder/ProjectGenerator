@@ -20,6 +20,7 @@ class Start(Screen):
 			app = App.get_running_app()
 			self.manager.transition = SlideTransition(direction="left")
 			self.manager.current = 'connected'
+			Connected.user = self.ids.user.text
 			app.config.read(app.get_application_config())
 			app.config.write()
 		else:
@@ -31,6 +32,7 @@ class Start(Screen):
 			if(project.writeUser(self.ids.user.text,self.ids.password.text)):
 				self.manager.transition = SlideTransition(direction="right")
 				self.manager.current = 'connected'
+				Connected.user = self.ids.user.text
 			else:
 				self.ids.defensive.text = "This user is already registered"
 		else:
@@ -39,18 +41,24 @@ class Start(Screen):
 
 #------------------------------------------------------------------------------------------------------------------------------
 class Connected(Screen):
-	def show(self):
-		project = ProjectGenerator()
-		result = project.showNodes()
-		result = result.values()#Convert to a list
-		projects = []
-		for node in result:#Print nodes in the result
-			print(node[0]["title"])
-			projects.append(node[0]["title"]) #The name of the atribute is setted in the second []	
-		adapter = ListAdapter(data=projects,cls=ListItemButton)
-		self.ids.project_list.adapter = adapter
+	
+	user = ""
+	project = ProjectGenerator()
+	result = project.showNodes()
+	result = result.values()#Convert to a list
+	projects = []
+	for node in result:#Print nodes in the result
+		projects.append(node[0]["title"]) #The name of the atribute is setted in the second []	
+	adapter = ListAdapter(data=projects,cls=ListItemButton)
+
+	def select(self):
+		ProjectScreen.name = self.ids.project_list.adapter.selection[0].text
+		self.manager.transition = SlideTransition(direction="left")
+		self.manager.current = 'project'	
 
 	def recomend(self):
+		project = ProjectGenerator()
+		project.getRecomendations(self.user)
 		pass
 
 	def add(self):
@@ -59,7 +67,12 @@ class Connected(Screen):
 	pass
 
 #------------------------------------------------------------------------------------------------------------------------------
-
+class ProjectScreen(Screen):
+	
+	ProjectName = ""
+	def ret(self):
+		pass
+	pass
 
 #------------------------------------------------------------------------------------------------------------------------------
 class ProjectListButton(ListItemButton):
@@ -72,6 +85,7 @@ class Project_GeneratorApp(App):
 		manager = ScreenManager()
 		manager.add_widget(Start(name='login'))
 		manager.add_widget(Connected(name='connected'))
+		manager.add_widget(ProjectScreen(name='project'))
 		return manager
 
 #------------------------------------------------------------------------------------------------------------------------------

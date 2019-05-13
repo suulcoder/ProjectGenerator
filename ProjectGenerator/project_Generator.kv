@@ -96,9 +96,9 @@
             padding: [70,70,70,70]
             Button:
                 background_color: (1,0.027,0.027,1.0)
-                text: 'SHOW ALL'
+                text: 'SELECT PROJECT'
                 font_size: 12
-                on_press: root.show()
+                on_press: root.select()
 
             Button:
                 background_color: (1,0.027,0.027,1.0)
@@ -117,5 +117,22 @@
             padding: [70,0,70,0]
             ListView:
                 id: project_list
-                adapter:
-                    ListAdapter(data=[],cls=ListItemButton)
+                adapter: root.adapter
+
+<ProjectScreen>:
+    canvas:
+        Color:
+            rgb: [0.62,0.027,0.027] 
+
+        Rectangle:
+            pos: 0,root.top-30
+            size: self.width, 80
+
+        Rectangle:
+            pos: 0,-50
+            size: self.width, 80
+
+    BoxLayout:
+        Label:
+            text: root.name
+            font_size: 30
