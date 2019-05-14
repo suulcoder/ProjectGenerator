@@ -131,8 +131,8 @@ class Database(object):
     def setDefault(self):
         if (self.getDefault().single()==None):#We check if the database is empty
             result = """
-            CREATE (ProjectGenerator:Project {title: "Project Generator",description:"This project is about the creation of a software to generate projects. You need to know how to code.", time:11, complexity:"medium", integrants:2 })
-            CREATE (SunRotation:Project {title: "Sun Rotation",description:"Calculate the angular velocity of the sun, coding", time:7, complexity:"low", integrants:3 })
+            CREATE (ProjectGenerator:Project {title: "Project_Generator",description:"This project is about the creation of a software to generate projects. You need to know how to code.", time:11, complexity:"medium", integrants:2 })
+            CREATE (SunRotation:Project {title: "Sun_Rotation",description:"Calculate the angular velocity of the sun, coding", time:7, complexity:"low", integrants:3 })
             CREATE (Behaviorism:Project {title: "Behaviorism",description:"Experiment with people and theory of behaviorism", time:210, complexity:"easy", integrants:1})
             CREATE (Gestalt:Project {title: "Gestalt",description:"Experiment to avoid extintion", time:2102400000, complexity:"hard", integrants:55})
             CREATE (Avengers:Project {title: "Avengers",description:"Social experiment where a superhero is near of you", time:210, complexity:"hard", integrants:5})
@@ -154,10 +154,6 @@ class Database(object):
             CREATE (User:User {name: "Default",password: "àÂææîÞäÈ"})
             
             CREATE
-                (User)-[:HAS_DONE]->(ProjectGenerator),
-                (User)-[:HAS_DONE]->(Gestalt),
-                (User)-[:HAS_LIKED]->(SunRotation),
-                (User)-[:HAS_LIKED]->(ProjectGenerator),
                 (User)-[:HAS_VIEWED]->(Gestalt),
                 (User)-[:HAS_VIEWED]->(CACAP),
                 (User)-[:HAS_VIEWED]->(ProjectGenerator),

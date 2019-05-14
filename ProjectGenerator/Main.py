@@ -14,6 +14,22 @@ from kivy.properties import ObjectProperty
 #------------------------------------------------------------------------------------------------------------------------------
 class Start(Screen):
 
+	def on_text(self, instance, value):
+		project = ProjectGenerator()
+		self.root.suggestion_text = ''
+		word_list = project.getAllNodes()
+		val = value[value.rfind(' ') + 1:]
+		if not val:
+		    return
+		try:
+			word = [word for word in word_list
+                    if word.startswith(val)][0][len(val):]
+			if not word:
+				return
+			self.root.suggestion_text = word
+		except IndexError:
+			print("IndexError")
+
 	def login(self):#When user press login
 		project = ProjectGenerator()
 		if(project.checkUser(self.ids.user.text,self.ids.password.text)):
@@ -30,9 +46,12 @@ class Start(Screen):
 		project = ProjectGenerator()
 		if(self.ids.user.text!="" and self.ids.user.text!=""):
 			if(project.writeUser(self.ids.user.text,self.ids.password.text)):
+				app = App.get_running_app()
 				self.manager.transition = SlideTransition(direction="right")
 				self.manager.current = 'connected'
 				Connected.user = self.ids.user.text
+				app.config.read(app.get_application_config())
+				app.config.write()
 			else:
 				self.ids.defensive.text = "This user is already registered"
 		else:
@@ -51,27 +70,49 @@ class Connected(Screen):
 		projects.append(node[0]["title"]) #The name of the atribute is setted in the second []	
 	adapter = ListAdapter(data=projects,cls=ListItemButton)
 
+	def showAll(self):
+		project = ProjectGenerator()
+		result = project.showNodes()
+		result = result.values()#Convert to a list
+		projects = []
+		for node in result:#Print nodes in the result
+			projects.append(node[0]["title"]) #The name of the atribute is setted in the second []	
+		self.ids.project_list.adapter = ListAdapter(data=projects,cls=ListItemButton)
+
 	def select(self):
-		ProjectScreen.name = self.ids.project_list.adapter.selection[0].text
-		self.manager.transition = SlideTransition(direction="left")
-		self.manager.current = 'project'	
+		try:
+			self.ids.name.text = self.ids.project_list.adapter.selection[0].text
+			project = ProjectGenerator()
+			result = project.getProject("title",self.ids.project_list.adapter.selection[0].text)
+			result = result.values()#Convert to a list
+			for node in result:
+				self.ids.description.text =  node[0]["description"]
+				self.ids.time.text = "Time in hours: " + str(node[0]["time"])
+				self.ids.complexity.text = "Complexity: " + node[0]["complexity"]
+				self.ids.integrants.text = "Integrants required: " + str(node[0]["integrants"])
+			project.db.link("User","Project","name",self.user,"title",self.ids.project_list.adapter.selection[0].text,"HAS_VIEWED")
+		except:
+			self.ids.name.text = "PROJECT GENERATOR"
+			self.ids.description.text = "SELECT ONE PROJECT"
+			self.ids.time.text = ""
+			self.ids.complexity.text = ""
+			self.ids.integrants.text = ""
 
 	def recomend(self):
 		project = ProjectGenerator()
-		project.getRecomendations(self.user)
-		pass
+		self.ids.project_list.adapter = ListAdapter(data=project.getRecomendations(self.user),cls=ListItemButton) 
 
 	def add(self):
-		pass
+		app = App.get_running_app()
+		self.manager.transition = SlideTransition(direction="right")
+		self.manager.current = 'add'
+		app.config.read(app.get_application_config())
+		app.config.write()
 
 	pass
 
 #------------------------------------------------------------------------------------------------------------------------------
-class ProjectScreen(Screen):
-	
-	ProjectName = ""
-	def ret(self):
-		pass
+class AddNode(Screen):
 	pass
 
 #------------------------------------------------------------------------------------------------------------------------------
@@ -85,9 +126,8 @@ class Project_GeneratorApp(App):
 		manager = ScreenManager()
 		manager.add_widget(Start(name='login'))
 		manager.add_widget(Connected(name='connected'))
-		manager.add_widget(ProjectScreen(name='project'))
+		manager.add_widget(AddNode(name='add'))
 		return manager
-
 #------------------------------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 	Project_GeneratorApp().run()

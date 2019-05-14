@@ -20,25 +20,23 @@ class Project(object):
 #---------------------------------------------------------------------------------------------------
 class Resource(object):
     """Resource has title and specification"""
-    def __init__(self, title,specification,_id):
-        self._id = _id + ":Resource"
+    def __init__(self, title,specification):
         self.title =title
         self.specification = specification
         
 #---------------------------------------------------------------------------------------------------
-class User(object):
-    """User has name and password"""
-    def __init__(self, name,password,_id):
-        self._id = _id+":User"
-        self.name = name
-        self.password = password
-        
-#---------------------------------------------------------------------------------------------------
 class Topic(object):
-    """Topic has departament and id"""
-    def __init__(self, title,departament,_id):
-        self._id = _id
+    """Topic has departament and title"""
+    def __init__(self, title,departament):
         self.title = title
         self.departament = departament
 
 #---------------------------------------------------------------------------------------------------
+class Relation(object):
+    """This will be useful for give the recomendation"""
+    def __init__(self, project,value):
+        self.project = project
+        self.value = value
+        
+    def compare(self,project):
+        return(project.title==self.project.title)

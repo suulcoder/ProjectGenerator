@@ -34,12 +34,14 @@
             padding: [120,30,120,20]
 
             TextInput:
+                readonly: False
                 hint_text: "USERNAME"
                 id: user
                 multiline:False
                 font_size: 14
 
             TextInput:
+                readonly: False
                 hint_text: "PASSWORD"
                 id: password
                 multiline:False
@@ -75,8 +77,8 @@
             rgb: [0.62,0.027,0.027] 
 
         Rectangle:
-            pos: 0,root.top-30
-            size: self.width, 80
+            pos: 0,root.top-150
+            size: self.width, 150
 
         Rectangle:
             pos: 0,-50
@@ -88,12 +90,38 @@
         padding: [70,25,70,10]
         spacing: 5
 
-        Image:
-            source: "image.png"
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                id: name
+                text: "PROJECT GENERATOR"
+                size: root.width,20
+                font_size: 30
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 15
+                Label:
+                    id: integrants
+                    text: ""
+                    font_size: 10
+                Label:
+                    id: complexity
+                    text: ""
+                    font_size: 10
+                Label:
+                    id: time
+                    text: ""
+                    font_size: 10
+            Label:
+                id: description
+                text: ""
+                font_size: 10
+
 
         BoxLayout:
             orientation: 'horizontal'
-            padding: [70,70,70,70]
+            padding: [50,70,50,70]
             Button:
                 background_color: (1,0.027,0.027,1.0)
                 text: 'SELECT PROJECT'
@@ -102,7 +130,13 @@
 
             Button:
                 background_color: (1,0.027,0.027,1.0)
-                text: 'RECOMENDATIONS FOR YOU'
+                text: 'SHOW ALL'
+                font_size: 12
+                on_press: root.showAll()
+
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: 'RECOMENDATIONS'
                 font_size: 12
                 on_press: root.recomend()
 
@@ -119,7 +153,7 @@
                 id: project_list
                 adapter: root.adapter
 
-<ProjectScreen>:
+<AddNode>:
     canvas:
         Color:
             rgb: [0.62,0.027,0.027] 
@@ -132,7 +166,18 @@
             pos: 0,-50
             size: self.width, 80
 
-    BoxLayout:
-        Label:
-            text: root.name
-            font_size: 30
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [70,0,70,10]
+        spacing: 5
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'ADD NODE'
+                font_size: 30
+
+        
+
