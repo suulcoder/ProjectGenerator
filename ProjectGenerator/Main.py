@@ -109,11 +109,48 @@ class Connected(Screen):
 		app.config.read(app.get_application_config())
 		app.config.write()
 
+	def SignOut(self):
+		app = App.get_running_app()
+		self.manager.transition = SlideTransition(direction="left")
+		self.manager.current = 'login'
+		app.config.read(app.get_application_config())
+		app.config.write()
 	pass
 
 #------------------------------------------------------------------------------------------------------------------------------
 class AddNode(Screen):
 	pass
+
+	def save(self):
+		if(self.ids.ProjectName.text!="" and self.ids.CourseName.text!="" and self.ids.ResourceName.text!="" and self.ids.ProjectDescription.text!="" and self.ids.CourseDepartament.text!="" and self.ids.ResourceDescription.text!=""):
+			project = ProjectGenerator()
+			if(project.db.getNode("Project","title",self.ids.ProjectName.text)==None):
+				print("Here")
+				project.db.write("id","Project",{"title":self.ids.ProjectName.text,"description":self.ids.ProjectDescription.text})
+				if(project.db.getNode("Resource","title",self.ids.ResourceName.text)==None):
+					project.db.write("id","Resource",{"title":self.ids.ResourceName.text,"specifications":self.ids.ResourceDescription.text})
+				if(project.db.getNode("Course","title",self.ids.CourseName.text)==None):
+					project.db.write("id","Course",{"title":self.ids.CourseName.text,"Departament":self.ids.CourseDepartament.text})
+				project.db.link("Project","Resource","title",self.ids.ProjectName.text,"title",self.ids.ResourceName.text,"USE_A")
+				project.db.link("Project","Course","title",self.ids.CourseName.text,"title",self.ids.CourseDepartament.text,"PROJECT_FOR")
+				app = App.get_running_app()
+				self.manager.transition = SlideTransition(direction="left")
+				self.manager.current = 'connected'
+				app.config.read(app.get_application_config())
+				app.config.write()
+			else:
+				self.ids.description == "PROJECT ALREADY EXISTS"	
+		else:
+			self.ids.description == "FILL ALL DATA"
+
+
+	def cancel(self):
+		app = App.get_running_app()
+		self.manager.transition = SlideTransition(direction="left")
+		self.manager.current = 'connected'
+		app.config.read(app.get_application_config())
+		app.config.write()
+		
 
 #------------------------------------------------------------------------------------------------------------------------------
 class ProjectListButton(ListItemButton):

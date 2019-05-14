@@ -87,7 +87,7 @@
     BoxLayout
         id: box_layout
         orientation: 'vertical'
-        padding: [70,25,70,10]
+        padding: [70,25,70,30]
         spacing: 5
 
         BoxLayout:
@@ -121,7 +121,7 @@
 
         BoxLayout:
             orientation: 'horizontal'
-            padding: [50,70,50,70]
+            padding: [30,70,30,70]
             Button:
                 background_color: (1,0.027,0.027,1.0)
                 text: 'SELECT PROJECT'
@@ -146,6 +146,12 @@
                 font_size: 12
                 on_press: root.add()
 
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: 'SIGN OUT'
+                font_size: 12
+                on_press: root.SignOut()
+
         BoxLayout:
             orientation: 'vertical'
             padding: [70,0,70,0]
@@ -169,15 +175,73 @@
     BoxLayout
         id: login_layout
         orientation: 'vertical'
-        padding: [70,0,70,10]
+        padding: [70,35,70,25]
         spacing: 5
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            TextInput:
+                readonly: False
+                hint_text: "NAME PROJECT"
+                id: ProjectName
+                multiline:False
+                font_size: 14
+
+            TextInput:
+                readonly: False
+                hint_text: "Name of Course"
+                id: CourseName
+                multiline:False
+                font_size: 14
+
+            TextInput:
+                readonly: False
+                hint_text: "Name of Resource"
+                id: ResourceName
+                multiline:False
+                font_size: 14
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            TextInput:
+                readonly: False
+                hint_text: "Description PROJECT"
+                id: ProjectDescription
+                font_size: 14
+
+            TextInput:
+                readonly: False
+                hint_text: "Departament of Course"
+                id: CourseDepartament
+                multiline:False
+                font_size: 14
+
+            TextInput:
+                readonly: False
+                hint_text: "Description of Resource"
+                id: ResourceDescription
+                font_size: 14
 
         BoxLayout:
             orientation: 'vertical'
 
+            BoxLayout:
+                orientation: 'horizontal'
+
+                Button:
+                    background_color: (1,0.027,0.027,1.0)
+                    text: 'SAVE'
+                    font_size: 12
+                    on_press: root.save()            
+            
+                Button:
+                    background_color: (1,0.027,0.027,1.0)
+                    text: 'CANCEL'
+                    font_size: 12
+                    on_press: root.cancel()            
             Label:
-                text: 'ADD NODE'
-                font_size: 30
-
-        
-
+                id: description
+                text: "SJKL"
+                font_size: 10

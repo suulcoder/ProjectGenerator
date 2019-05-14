@@ -137,28 +137,64 @@ class Database(object):
             CREATE (Gestalt:Project {title: "Gestalt",description:"Experiment to avoid extintion", time:2102400000, complexity:"hard", integrants:55})
             CREATE (Avengers:Project {title: "Avengers",description:"Social experiment where a superhero is near of you", time:210, complexity:"hard", integrants:5})
             CREATE (CACAP:Project {title: "CACAP",description:"Centro de Administracion y Control Automatico de Papel", time:210, complexity:"hard", integrants:5})
+            CREATE (SpaceWars:Project {title: "SpaceWars",description:"Make an space war", time:11, complexity:"medium", integrants:2 })
+            CREATE (Notizen:Project {title: "NOTIZEN",description:"Make an app to take notes", time:7, complexity:"low", integrants:3 })
+            CREATE (Simulator:Project {title: "SIMULATE_WITH_PHYSICS",description:"Simulate with unity a phenomenom of classic physics", time:210, complexity:"easy", integrants:1})
+            CREATE (RRasberry:Project {title: "Robot_with_Raspberry",description:"Make a robot using a rapberry", time:210, complexity:"hard", integrants:5})
+            CREATE (RArduino:Project {title: "Robot_with_arduino",description:"Make a robot using an arduino", time:210, complexity:"hard", integrants:5})
+            CREATE (Story:Project {title: "Short_Story",description:"Write a short story", time:210, complexity:"hard", integrants:5})
 
             CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
+            CREATE (Unity:Resource {title: "Unity", specifications: "Software Unity"})
+            CREATE (Arduino:Resource {title: "Arduino", specifications: "Arduino a mini-computer"})
+            CREATE (AndroidStudio:Resource {title: "AndroidStudio", specifications: "Android Studio software"})
             CREATE (Fruit:Resource {title: "fruit", specifications: "A fresh fruit"})
             CREATE (Vegetable:Resource {title: "vegetable", specifications: "A fresh vegetable"})
             CREATE (Subjects:Resource {title: "subjects", specifications: "Humans for investigation"})
             CREATE (Custom:Resource {title: "custom", specifications: "a custom or suit"})
             CREATE (Raspberry:Resource {title: "raspberry", specifications: "a mini-computer with raspberry"})
+            CREATE (Paper:Resource {title: "Paper", specifications: "Paper to write"})
 
             CREATE (DataStructure:Course {title: "Data Structure",Departament: "Computer Science"})
             CREATE (Physics2:Course {title: "Physics 2",Departament: "Physics"})
+            CREATE (Physics1:Course {title: "Physics 1",Departament: "Physics"})
             CREATE (Psicology:Course {title: "Basic psicology",Departament:"Psicology"})
             CREATE (Humanity:Course {title: "Humanity Sciences",Departament:"Social studies"})
             CREATE (Code:Course {title: "Basic coding",Departament:"Computer Sciences"})
-
+            CREATE (VideoGames:Course {title: "VideoGames",Departament:"Computer Sciences"})
+            CREATE (MobilePlataforms:Course {title: "Mobile Plataforms",Departament:"Computer Sciences"})
+            CREATE (Assembler:Course {title: "Assembler",Departament:"Computer Sciences"})
+            CREATE (Letters:Course {title: "Writing",Departament:"Languages"})            
             CREATE (User:User {name: "Default",password: "àÂææîÞäÈ"})
             
             CREATE
-                (User)-[:HAS_VIEWED]->(Gestalt),
-                (User)-[:HAS_VIEWED]->(CACAP),
-                (User)-[:HAS_VIEWED]->(ProjectGenerator),
-                (User)-[:HAS_VIEWED]->(SunRotation), 
+                (User)-[:HAS_VIEWED]->(ProjectGenerator), 
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
+                (Story)-[:PROJECT_FOR]->(Letters),
+                (Story)-[:USE_A]->(Paper),
+                (Story)-[:USE_A]->(Computer),
+                (Notizen)-[:PROJECT_FOR]->(Code),
+                (RRasberry)-[:PROJECT_FOR]->(Code),
+                (RArduino)-[:PROJECT_FOR]->(Code),
+                (RRasberry)-[:USE_A]->(Raspberry),
+                (RArduino)-[:USE_A]->(Arduino),
+                (RRasberry)-[:USE_A]->(Computer),
+                (RArduino)-[:USE_A]->(Computer),
+                (Simulator)-[:USE_A]->(Unity),
+                (Simulator)-[:USE_A]->(Computer),
+                (SpaceWars)-[:USE_A]->(Unity),
+                (SpaceWars)-[:USE_A]->(Computer),
+                (Notizen)-[:USE_A]->(AndroidStudio),
+                (Notizen)-[:USE_A]->(Computer),
+                (RRasberry)-[:PROJECT_FOR]->(Assembler),
+                (RArduino)-[:PROJECT_FOR]->(Assembler),
+                (Notizen)-[:PROJECT_FOR]->(MobilePlataforms),
+                (Simulator)-[:PROJECT_FOR]->(Code),
+                (Simulator)-[:PROJECT_FOR]->(VideoGames),
+                (Simulator)-[:PROJECT_FOR]->(Physics2),
+                (Simulator)-[:PROJECT_FOR]->(Physics1),
+                (SpaceWars)-[:PROJECT_FOR]->(Code),
+                (SpaceWars)-[:PROJECT_FOR]->(VideoGames),
                 (SunRotation)-[:PROJECT_FOR]->(Physics2),
                 (SunRotation)-[:PROJECT_FOR]->(DataStructure),
                 (SunRotation)-[:PROJECT_FOR]->(Code),
