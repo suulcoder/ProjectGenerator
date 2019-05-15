@@ -1,5 +1,6 @@
 """
 The classes that model a node in our database
+And the model relation that will be useful to get the algorithm
 Project Generator
 Universidad del Valle de Guatemala
 Saul Contreras

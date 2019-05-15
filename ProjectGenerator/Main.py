@@ -1,3 +1,10 @@
+"""
+Project Generator
+Universidad del Valle de Guatemala
+Saul Contreras
+Michele Benvenuto
+Jennifer
+"""
 from kivy.app import App
 from kivy.uix.widget import Widget
 from Models import *
