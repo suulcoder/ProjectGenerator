@@ -90,7 +90,7 @@ class Connected(Screen):
 				self.ids.time.text = "Time in hours: " + str(node[0]["time"])
 				self.ids.complexity.text = "Complexity: " + node[0]["complexity"]
 				self.ids.integrants.text = "Integrants required: " + str(node[0]["integrants"])
-			project.db.link("User","Project","name",self.user,"title",self.ids.project_list.adapter.selection[0].text,"HAS_VIEWED")
+			project.db.link("User","Project","name",project.encriptPassword(self.user),"title",self.ids.project_list.adapter.selection[0].text,"HAS_VIEWED")
 		except:
 			self.ids.name.text = "PROJECT GENERATOR"
 			self.ids.description.text = "SELECT ONE PROJECT"
@@ -100,7 +100,17 @@ class Connected(Screen):
 
 	def recomend(self):
 		project = ProjectGenerator()
-		self.ids.project_list.adapter = ListAdapter(data=project.getRecomendations(self.user),cls=ListItemButton) 
+		self.ids.project_list.adapter = ListAdapter(data=project.getRecomendations(project.encriptPassword(self.user)),cls=ListItemButton) 
+
+	def delete(self):
+		project = ProjectGenerator()
+		try:
+			self.ids.name.text = self.ids.project_list.adapter.selection[0].text
+			project.db.delete("Project","title",self.ids.project_list.adapter.selection[0].text)
+			self.showAll()
+		except:
+			self.ids.name.text = "PROJECT GENERATOR"
+			self.ids.description.text = "SELECT ONE PROJECT"
 
 	def add(self):
 		app = App.get_running_app()
@@ -122,27 +132,28 @@ class AddNode(Screen):
 	pass
 
 	def save(self):
-		if(self.ids.ProjectName.text!="" and self.ids.CourseName.text!="" and self.ids.ResourceName.text!="" and self.ids.ProjectDescription.text!="" and self.ids.CourseDepartament.text!="" and self.ids.ResourceDescription.text!=""):
-			project = ProjectGenerator()
-			if(project.db.getNode("Project","title",self.ids.ProjectName.text)==None):
-				print("Here")
-				project.db.write("id","Project",{"title":self.ids.ProjectName.text,"description":self.ids.ProjectDescription.text})
-				if(project.db.getNode("Resource","title",self.ids.ResourceName.text)==None):
-					project.db.write("id","Resource",{"title":self.ids.ResourceName.text,"specifications":self.ids.ResourceDescription.text})
-				if(project.db.getNode("Course","title",self.ids.CourseName.text)==None):
-					project.db.write("id","Course",{"title":self.ids.CourseName.text,"Departament":self.ids.CourseDepartament.text})
-				project.db.link("Project","Resource","title",self.ids.ProjectName.text,"title",self.ids.ResourceName.text,"USE_A")
-				project.db.link("Project","Course","title",self.ids.CourseName.text,"title",self.ids.CourseDepartament.text,"PROJECT_FOR")
-				app = App.get_running_app()
-				self.manager.transition = SlideTransition(direction="left")
-				self.manager.current = 'connected'
-				app.config.read(app.get_application_config())
-				app.config.write()
+		try:
+			if(self.ids.ProjectName.text!="" and self.ids.CourseName.text!="" and self.ids.ResourceName.text!=""):
+				project = ProjectGenerator()
+				if(project.db.getNode("Project","title",self.ids.ProjectName.text).single()==None):
+					project.db.write("id","Project",{"title":self.ids.ProjectName.text,"description":self.ids.ProjectDescription.text,"integrants":int(self.ids.integrants.text),"time":int(self.ids.time.text),"complexity":self.ids.complexity.text})
+					if(project.db.getNode("Resource","title",self.ids.ResourceName.text).single()==None):
+						project.db.write("id","Resource",{"title":self.ids.ResourceName.text,"specifications":self.ids.ResourceDescription.text})
+					if(project.db.getNode("Course","title",self.ids.CourseName.text).single()==None):
+						project.db.write("id","Course",{"title":self.ids.CourseName.text,"Departament":self.ids.CourseDepartament.text})
+					project.db.link("Project","Resource","title",self.ids.ProjectName.text,"title",self.ids.ResourceName.text,"USE_A")
+					project.db.link("Project","Course","title",self.ids.ProjectName.text,"title",self.ids.CourseName.text,"PROJECT_FOR")
+					app = App.get_running_app()
+					self.manager.transition = SlideTransition(direction="left")
+					self.manager.current = 'connected'
+					app.config.read(app.get_application_config())
+					app.config.write()
+				else:
+					self.ids.description.text = "PROJECT ALREADY EXISTS"	
 			else:
-				self.ids.description == "PROJECT ALREADY EXISTS"	
-		else:
-			self.ids.description == "FILL ALL DATA"
-
+				self.ids.description.text = "FILL ALL DATA"
+		except:
+			self.ids.description.text = "INVALID DATA"
 
 	def cancel(self):
 		app = App.get_running_app()
@@ -150,7 +161,6 @@ class AddNode(Screen):
 		self.manager.current = 'connected'
 		app.config.read(app.get_application_config())
 		app.config.write()
-		
 
 #------------------------------------------------------------------------------------------------------------------------------
 class ProjectListButton(ListItemButton):
@@ -165,20 +175,7 @@ class Project_GeneratorApp(App):
 		manager.add_widget(Connected(name='connected'))
 		manager.add_widget(AddNode(name='add'))
 		return manager
+
 #------------------------------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 	Project_GeneratorApp().run()
-	#db.setDefault()																	#Set default Database
-	#DonebyUser = db.getNodesByOther("Project","title","Avengers","USE_A")
-	#result = result.values()#Convert to a list
-	#for node in result:#Print nodes in the result
-	#	print(node[0]["title"]) #The name of the atribute is setted in the second []
-	#db.close()
-	#project = Project("second","Confidencial","proyecto")
-	#db.write("second","Resource",{"title":"dfa","description":project.description})
-	#db.write("id","Project",{"title":project.title,"description":project.description})
-	#db.link("Project","Resource","title",project.title,"title","dfa","do_with")
-	#db.deleteLink("Project","Resource","title",project.title,"title","dfa","do_with")
-	#db.delete("Resource","title","dfa")
-	#db.upgrade("Resource","title","dfa","prueba")
-	#print(db.getNode("Project","titl",project.title).single())

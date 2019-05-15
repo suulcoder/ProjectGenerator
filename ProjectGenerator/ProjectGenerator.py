@@ -14,7 +14,7 @@ class ProjectGenerator(object):
 
 	def __init__(self):
 		self.db = Database("bolt://localhost:7687", "Default","password")					#Set Conection to Database
-		self.db.setDefault()																		#Set default Database			
+		self.db.setDefault()		
 
 	def encriptPassword(self,password):														#Encript Password
 		newPassword = ""
@@ -30,16 +30,16 @@ class ProjectGenerator(object):
 
 	def checkUser(self,user,password):
 		try:																						#If user doesn´t exist it will show an excpetion
-			passwordToCheck = self.db.getNode("User","name",user).single()[0]["password"]
+			passwordToCheck = self.db.getNode("User","name",self.encriptPassword(user)).single()[0]["password"]
 			if(self.unencriptPassword(passwordToCheck)==password):
-				self.user=user
+				self.user=self.encriptPassword(user)
 		except:
 			return False
 		return(self.unencriptPassword(passwordToCheck)==password)
 
 	def writeUser(self,user,password):
-		if(self.db.getNode("User","name",user).single()==None):
-			self.db.write("user","User",{"name":user,"password":self.encriptPassword(password)})
+		if(self.db.getNode("User","name",self.encriptPassword(user)).single()==None):
+			self.db.write("user","User",{"name":self.encriptPassword(user),"password":self.encriptPassword(password)})
 			self.user = user
 			return True
 		return False

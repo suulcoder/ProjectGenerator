@@ -165,10 +165,8 @@ class Database(object):
             CREATE (MobilePlataforms:Course {title: "Mobile Plataforms",Departament:"Computer Sciences"})
             CREATE (Assembler:Course {title: "Assembler",Departament:"Computer Sciences"})
             CREATE (Letters:Course {title: "Writing",Departament:"Languages"})            
-            CREATE (User:User {name: "Default",password: "àÂææîÞäÈ"})
             
             CREATE
-                (User)-[:HAS_VIEWED]->(ProjectGenerator), 
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
                 (Story)-[:PROJECT_FOR]->(Letters),
                 (Story)-[:USE_A]->(Paper),

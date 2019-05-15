@@ -121,7 +121,7 @@
 
         BoxLayout:
             orientation: 'horizontal'
-            padding: [30,70,30,70]
+            padding: [1,70,1,70]
             Button:
                 background_color: (1,0.027,0.027,1.0)
                 text: 'SELECT PROJECT'
@@ -139,6 +139,12 @@
                 text: 'RECOMENDATIONS'
                 font_size: 12
                 on_press: root.recomend()
+
+            Button:
+                background_color: (1,0.027,0.027,1.0)
+                text: '-DELETE NODE'
+                font_size: 12
+                on_press: root.delete()
 
             Button:
                 background_color: (1,0.027,0.027,1.0)
@@ -225,6 +231,28 @@
                 font_size: 14
 
         BoxLayout:
+            orientation: 'horizontal'
+
+            TextInput:
+                readonly: False
+                hint_text: "Time in hours"
+                id: time
+                font_size: 14
+
+            TextInput:
+                readonly: False
+                hint_text: "Complexity"
+                id: complexity
+                multiline:False
+                font_size: 14
+
+            TextInput:
+                readonly: False
+                hint_text: "Number of integrants"
+                id: integrants
+                font_size: 14
+
+        BoxLayout:
             orientation: 'vertical'
 
             BoxLayout:
@@ -243,5 +271,5 @@
                     on_press: root.cancel()            
             Label:
                 id: description
-                text: "SJKL"
+                text: ""
                 font_size: 10
