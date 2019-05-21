@@ -135,15 +135,35 @@ class Database(object):
             CREATE (SunRotation:Project {title: "Sun_Rotation",description:"Calculate the angular velocity of the sun, coding", time:7, complexity:"low", integrants:3 })
             CREATE (Behaviorism:Project {title: "Behaviorism",description:"Experiment with people and theory of behaviorism", time:210, complexity:"easy", integrants:1})
             CREATE (Gestalt:Project {title: "Gestalt",description:"Experiment to avoid extintion", time:2102400000, complexity:"hard", integrants:55})
-            CREATE (Avengers:Project {title: "Avengers",description:"Social experiment where a superhero is near of you", time:210, complexity:"hard", integrants:5})
+            CREATE (Avengers:Project {title: "Avengers",description:"Social experiment where a superhero is near of you", time:210, complexity:"medium", integrants:5})
             CREATE (CACAP:Project {title: "CACAP",description:"Centro de Administracion y Control Automatico de Papel", time:210, complexity:"hard", integrants:5})
             CREATE (SpaceWars:Project {title: "SpaceWars",description:"Make an space war", time:11, complexity:"medium", integrants:2 })
             CREATE (Notizen:Project {title: "NOTIZEN",description:"Make an app to take notes", time:7, complexity:"low", integrants:3 })
             CREATE (Simulator:Project {title: "SIMULATE_WITH_PHYSICS",description:"Simulate with unity a phenomenom of classic physics", time:210, complexity:"easy", integrants:1})
-            CREATE (RRasberry:Project {title: "Robot_with_Raspberry",description:"Make a robot using a rapberry", time:210, complexity:"hard", integrants:5})
+            CREATE (RRasberry:Project {title: "Robot_with_Raspberry",description:"Make a robot using a rapberry", time:210, complexity:"medium", integrants:5})
             CREATE (RArduino:Project {title: "Robot_with_arduino",description:"Make a robot using an arduino", time:210, complexity:"hard", integrants:5})
             CREATE (Story:Project {title: "Short_Story",description:"Write a short story", time:210, complexity:"hard", integrants:5})
-
+            CREATE (ElasticConstat:Project {title: "A Simple Experiment for Determining the Elastic Constant of a Fine Wire",description:"Determining the Elastic Constant of a Fine Wire", time:210, complexity:"hard", integrants:4})
+            CREATE (HollywoodPhysics:Project {title: "HollywoodPhysics",description:"Analyze hollywood movies with physics", time:210, complexity:"hard", integrants:3})
+            CREATE (BrominationA:Project {title: "Bromination of alkanes",description:"Bromination of alkanes", time:3, complexity:"medium",integrants:2})
+            CREATE (Halogenation:Project {title: "A Safe Simple Halogenation Experiment",description:"halogenation of alkanes", time:4, complexity:"hard", integrants:2})
+            CREATE (Hydrogenation:Project {title: "Catalytic Hydrogenation of Organic Compounds without H2 Supply: An Electrochemical System",description:"Catalytic hydrogenation using a Electrochemical Cell", time:5, complexity:"hard", integrants:2})
+            CREATE (SN2:Project {title: "A Simple SN2 Reaction for the Undergraduate Organic Laboratory",description:"making a bimolecular sustitution ", time:5, complexity:"hard", integrants:3})
+            CREATE (Lisp:Project {title: "Lisp_Interpreter",description:"Recreate a lisp interpreter using java", time:210, complexity:"hard", integrants:3})
+            CREATE (Recommendation:Project {title: "Recomendation_Algorithm",description:"Recreate an algorithm capable to make recommendations", time:210, complexity:"hard", integrants:3})
+            CREATE (Sodium:Project {title: "Determination of sodium in Swiss cheese through the method of volhard",description:"Analyzing Swiss cheese", time:210, complexity:"hard", integrants:4})
+            CREATE (Sanitary_Napkins_absorption:Project {title: "comparison of absorption of sanitary napkins of different brands",description:"Write a short story", time:210, complexity:"hard", integrants:5})
+            CREATE (Aluminum_Recycling:Project {title: "Recycling of aluminum chip produced in UVG mechanics workshop",description:"Recycling aluminum for alum formation", time:110, complexity:"hard", integrants:5})
+            CREATE (Inhibition_Klebsiella:Project {title: "Inhibition of Klebsiella pneumoniae biofilm through chamomile extract",description:"inhibit the growth of a bacterium by means of chamomile extract", time:510, complexity:"hard", integrants:5})
+            CREATE (biomimic:Project {title: "Helmet simulating an armadillo",description:"make a motorcycle helmet that mimics one of the characteristics of the armadillo", time:410, complexity:"hard", integrants:5})
+            CREATE (Fable:Project {title: "Fable",description:"write a story and dramatize it in class", time:210, complexity:"hard", integrants:8})
+            CREATE (Reports:Project {title: "make reports over the internet",description:"create a program that allows to make denunciations by Internet", time:250, complexity:"hard", integrants:5})
+            CREATE (Sonic_Pi:Project {title: "My own music",description:"create a song using sonic pi", time:510, complexity:"hard", integrants:4})
+            CREATE (Pokultura:Project {title: "Pokultura",description:"a simple card game that involves culture", time:510, complexity:"medium", integrants:6})
+            CREATE (mechanical_workshop:Project {title: "mechanical_workshop",description:"Create a program that organizes the information of a mechanical workshop", time:210, complexity:"hard", integrants:4})
+            CREATE (political_parties:Project {title: "political_parties",description:"create political parties", time:310, complexity:"medium", integrants:9})
+            CREATE (massacres_of_the_jungle:Project {title: "massacres_of_the_jungle",description:"historical book analysis", time:210, complexity:"medium", integrants:4})
+            
             CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
             CREATE (Unity:Resource {title: "Unity", specifications: "Software Unity"})
             CREATE (Arduino:Resource {title: "Arduino", specifications: "Arduino a mini-computer"})
@@ -164,7 +184,8 @@ class Database(object):
             CREATE (VideoGames:Course {title: "VideoGames",Departament:"Computer Sciences"})
             CREATE (MobilePlataforms:Course {title: "Mobile Plataforms",Departament:"Computer Sciences"})
             CREATE (Assembler:Course {title: "Assembler",Departament:"Computer Sciences"})
-            CREATE (Letters:Course {title: "Writing",Departament:"Languages"})            
+            CREATE (Letters:Course {title: "Writing",Departament:"Languages"})
+            CREATE (Organic1:Course {title: "Organic Chemistry",Departament:"Chemistry"})
             
             CREATE
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
@@ -180,11 +201,16 @@ class Database(object):
                 (RArduino)-[:USE_A]->(Computer),
                 (Simulator)-[:USE_A]->(Unity),
                 (Simulator)-[:USE_A]->(Computer),
+                (HollywoodPhysics)-[:USE_A]->(Computer),
+                (HollywoodPhysics)-[:USE_A]->(Paper),
                 (SpaceWars)-[:USE_A]->(Unity),
                 (SpaceWars)-[:USE_A]->(Computer),
                 (Notizen)-[:USE_A]->(AndroidStudio),
                 (Notizen)-[:USE_A]->(Computer),
+                (ElasticConstat)-[:USE_A]->(Paper),
+                (HollywoodPhysics)-[:PROJECT_FOR]->(Physics2),
                 (RRasberry)-[:PROJECT_FOR]->(Assembler),
+                (ElasticConstat)-[:PROJECT_FOR]->(Physics2),
                 (RArduino)-[:PROJECT_FOR]->(Assembler),
                 (Notizen)-[:PROJECT_FOR]->(MobilePlataforms),
                 (Simulator)-[:PROJECT_FOR]->(Code),
