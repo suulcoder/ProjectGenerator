@@ -207,7 +207,12 @@ class Database(object):
             CREATE (LRS:Project {title: "LRS",description:"Design and simulate a circuit that represents the process of logically running a binary number towards the right", time:210, complexity:"hard", integrants:3})
             CREATE (Address_decoder:Project {title: "Address_decoder",description:"Design and simulate a circuit that decodes a 3-bit binary address and selects the position correct cell within a memory", time:210, complexity:"hard", integrants:3})
             CREATE (Binary_to_vowel_converter:Project {title: "Binary_to_vowel_converter",description:"Design and simulate a circuit that shows the vowels A, E, I, O, U. A binary number of 3 bits represents each vowel", time:210, complexity:"hard", integrants:3})
-                
+            CREATE (Car_stopping_Distance_on_a_Tabletop:Project {title: "Car_stopping_Distance_on_a_Tabletop",description:"Write a short story", time:210, complexity:"hard", integrants:5})
+            CREATE (The_energetics_of_a_bouncing ball:Project {title: "The_energetics_of_a_bouncing ball",description:"calculating the energy of a bouncing ball", time:210, complexity:"hard", integrants:4})
+            CREATE (Cotton_buds:Project {title: "Cotton_buds_momentum_and_impulse",description:"determinating momentum and impulse of cotton buds", time:510, complexity:"easy", integrants:5})
+            CREATE (Bernoulli_Law:Project {title: "Bernoulli_Law",description:"A Bernoulli's Law Lab in a Bottle", time:210, complexity:"hard", integrants:5})
+            CREATE (Archimedes_Principle:Project {title: "Archimedes_Principle",description:"Microcomputer-Based Laboratory for Archimedes Principle and Density of Liquids", time:210, complexity:"hard", integrants:5})
+            
             CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
             CREATE (Unity:Resource {title: "Unity", specifications: "Software Unity"})
             CREATE (Arduino:Resource {title: "Arduino", specifications: "Arduino a mini-computer"})
@@ -230,6 +235,7 @@ class Database(object):
             CREATE (Assembler:Course {title: "Assembler",Departament:"Computer Sciences"})
             CREATE (Letters:Course {title: "Writing",Departament:"Languages"})
             CREATE (Organic1:Course {title: "Organic Chemistry",Departament:"Chemistry"})
+            CREATE (Global_citizenship:Course {title: "Global_citizenship",Departament:"social Sciences  "})
             
             CREATE
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
