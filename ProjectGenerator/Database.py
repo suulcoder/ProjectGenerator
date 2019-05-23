@@ -4,8 +4,11 @@ Project Generator
 Universidad del Valle de Guatemala
 Saul Contreras
 Michele Benvenuto
-Jennifer
+Jennifer Sandoval
+-Algunos proyectos almacenados en la base de datos fueron obtenidos de la siguiente fuente de información:
+Sciencebuddies.(2019). Recommendation projects. Extraído de: https://www.sciencebuddies.org/science-fair-projects/topic-selection-wizard/recommendations?t=Long&p=2
 """
+
 
 from neo4j import GraphDatabase, basic_auth
 
@@ -311,8 +314,65 @@ class Database(object):
             CREATE (DNA_extraction:Project {title: "DNA_extraction",description:"make your own DNA extraction kit from household chemicals and use it to extract DNA from strawberries", time:210, complexity:"hard", integrants:1})
             CREATE (green_detergents:Project {title: "green_detergents",description:"compare the toxicity of "green" and conventional liquid detergents using worms as test organisms", time:210, complexity:"hard", integrants:2})
             CREATE (acid_rain:Project {title: "acid_rain",description:"How does acid rain affect aquatic ecosystems", time:210, complexity:"hard", integrants:2})
-
-            
+            CREATE (Soil_erosion:Project {title: "Soil_erosion",description:"can plants stop soil erosion?", time:210, complexity:"hard", integrants:5})
+            CREATE (Landslides:Project {title: "Landslides",description:"What causes rocks to slide down a slope", time:210, complexity:"medium", integrants:3})
+            CREATE (Molecular_scissors:Project {title: "Molecular_scissors",description:"Find out which enzymes will cut, and where by making a restriction map. Then you can figure out what will happen if you change the sequence of the DNA", time:210, complexity:"hard", integrants:3})
+            CREATE (genome_projects:Project {title: "genome_projects",description:"All animals have a genome, but do they all have genome projects? Find out which animals are currently having their genomes sequenced and how much we know already", time:210, complexity:"hard", integrants:2})
+            CREATE (Cryopreservation:Project {title: "Cryopreservation",description:"Cryopreservation—storing seeds in ultra-cold liquid nitrogen—is one method for maintaining plant genetic stocks in seed banks", time:210, complexity:"hard", integrants:4})
+            CREATE (pets_foodProject {title: "pets_food",description:"Are you in charge of feeding your family pet? How much food do you think your pet eats compared to other kinds of pets? ", time:210, complexity:"easy", integrants:3})
+            CREATE (drugs_genetics:Project {title: "drugs_genetics",description:"Write a short story", time:210, complexity:"hard", integrants:5})
+            CREATE (leaves_colors:Project {title: "leaves_colors",description:"In this project, you will uncover the hidden colors of fall by separating plant pigments with paper chromatography", time:210, complexity:"easy", integrants:4})
+            CREATE (antibodies:Project {title: "antibodies",description:"This project is a practical introduction to the human immune system in which you will learn about what antibodies are, how they are formed, and how they can be used to identify different types of cells", time:210, complexity:"hard", integrants:5})
+            CREATE (Stardust:Project {title: "Stardust",description:"catching stardust", time:210, complexity:"hard", integrants:5})
+            CREATE (heavy_metals:Project {title: "heavy_metals",description:"In this experiment, find out if one common heavy metal, copper, can be toxic to an aquatic environment", time:210, complexity:"hard", integrants:5})
+            CREATE (cabagge_clones:Project {title: "cabagge_clones",description:"In this science project you will get to find out by making your own cabbage clones", time:210, complexity:"hard", integrants:5})
+            CREATE (organic_waste:Project {title: "organic_waste",description:"Organic waste—like table scraps, agricultural waste, and human and animal waste—is biodegradable. This means, it can be chemically broken down by bacteria, fungi, or other living organisms into very small parts", time:210, complexity:"hard", integrants:5})
+            CREATE (kidney:Project {title: "kidney",description:" In this science project, with the help of bioinformatics databases, you will explore how a kidney could be bioengineered using stem cells", time:210, complexity:"hard", integrants:4})
+            CREATE (oxygen:Project {title: "oxygen",description:"Write a short story", time:210, complexity:"hard", integrants:5})
+            CREATE (prevent_erosion:Project {title: "prevent_erosion",description:"In this experiment you will learn how to prevent erosion", time:210, complexity:"hard", integrants:5})
+            CREATE (Sea:Project {title: "sea",description:"meassure how salty is the sea", time:210, complexity:"easy", integrants:4})
+            CREATE (Soil_worms:Project {title: "soil_worms",description:"In this science project, you will discover in what kind of soil it likes to do its work", time:210, complexity:"easy", integrants:4})
+            CREATE (earth_axis:Project {title: "earth_axis",description:"how do seasons affects earth axis", time:210, complexity:"easy", integrants:3})
+            CREATE (chick_breathe:Project {title: "chick_brethe",description:"find out how do chicks breathe inside a shell", time:210, complexity:"medium", integrants:4})
+            CREATE (faucet:Project {title: "faucet",description:"how faucet can save water", time:210, complexity:"hard", integrants:5})
+            CREATE (DNA_onion:Project {title: "DNA_onion",description:"extracting dna of an onion", time:210, complexity:"hard", integrants:5})
+            CREATE (Water_from_air:Project {title: "Water_from_air",description:"In this environmental engineering science project, you will investigate one way that people living in arid regions can collect water inexpensively: dew traps", time:210, complexity:"hard", integrants:5})
+            CREATE (moon:Project {title: "moon",description:"How much brighter is a full moon than the other phases of the moon? How is the brightness of the moon measured", time:210, complexity:"hard", integrants:5})
+            CREATE (capillary:Project {title: "capillary",description:" In this science project, you will use colored water and carnations to figure out where the water goes", time:210, complexity:"easy", integrants:2})
+            CREATE (ballon_car:Project {title: "ballon_car",description:"Do you think you could build a car powered by nothing but air? A balloon-powered car is pushed forward by air escaping from a balloon", time:210, complexity:"hard", integrants:5})
+            CREATE (bubbleology:Project {title: "bubbleology",description:"In this experiment you can test if adding corn syrup or glycerin to your bubble solution will make it just as good as the stuff you can buy", time:210, complexity:"easy", integrants:1})
+            CREATE (e_waste:Project {title: "e_waste",description:"In this science project, you'll explore what people in your community do with electronic waste, commonly called e-waste", time:210, complexity:"hard", integrants:3})
+            CREATE (clean_air:Project {title: "clean_air",description:"Find out how clean the air is in this simple experiment", time:210, complexity:"easy", integrants:2})
+            CREATE (soil_depth:Project {title: "soil_depth",description:"With this project you can get all the dirt on soil formation, soil horizons, and the composition of different soils", time:210, complexity:"hard", integrants:5})
+            CREATE (absorptivity:Project {title: "absorptivity",description:"In this science project, you will test the absorptivity of different materials (called sorbents) to discover which ones are best", time:210, complexity:"hard", integrants:5})
+            CREATE (germs_soup:Project {title: "germs_soup",description:" In this science project, you'll investigate which parts of the hand are the most difficult to wash germs off of.", time:210, complexity:"hard", integrants:5})
+            CREATE (roots:Project {title: "roots",description:" In this project, you will construct simple devices that hold several germinating seeds, which allow you to watch how growing rootlets respond as you rotate the devices, effectively altering", time:210, complexity:"hard", integrants:5})
+            CREATE (cereal_iron:Project {title: "cereal_iron",description:"In this experiment, you will devise a way of testing foods for supplemental iron additives. Then you will use your design to test different breakfast cereals to see how much iron they contain. Which brand of cereal will have the most iron in it", time:210, complexity:"hard", integrants:1})
+            CREATE (cell:Project {title: "cell",description:"Does an animal with a bigger genome need a larger cell nucleus to store its DNA", time:210, complexity:"hard", integrants:5})
+            CREATE (mutations:Project {title: "mutations",description:"n this science project, you will explore online genetic databases to identify how a mutation in a gene can result in a dysfunctional protein, and how other mutations may have no effect", time:210, complexity:"hard", integrants:5})
+            CREATE (rabid:Project {title: "rabid",description:"Nevertheless, it is important to avoid animals that have rabies so that you don't get infected. So which wild animals are likely to carry rabies", time:210, complexity:"hard", integrants:5})
+            CREATE (desalination:Project {title: "desalination",description:"n this science project, you will make a solar desalination apparatus using readily available materials, and a power source that is free", time:210, complexity:"hard", integrants:5})
+            CREATE (parallax:Project {title: "parallax",description:"In this astronomy science project you will find out by exploring the link between the distance of an object and perspective", time:210, complexity:"hard", integrants:5})
+            CREATE (memory:Project {title: "memory",description:"This is an easy project where you can test the effect of exercise on a critical brain function: memory", time:210, complexity:"hard", integrants:2})
+            CREATE (microorganisms:Project {title: "microorganisms",description:"This project uses liquid cultures and agar plates to investigate the effects of different concentrations of a food preservative on microbial growth", time:210, complexity:"medium", integrants:5})
+            CREATE (Submarines:Project {title: "Submarines",description:"In this science project, you can investigate how submarines use stabilizing fins to move forward. You might even figure out the secrets to maneuvering a submarine", time:210, complexity:"easy", integrants:2})
+            CREATE (flu:Project {title: "flu",description:" In this science project, you will make a simple model to investigate how the immune system defends the human body from common illnesses", time:210, complexity:"easy", integrants:3})
+            CREATE (water_toxicity:Project {title: "water_toxicity",description:" 	One way to test for the presence of toxic compounds in a water sample is a bioassay. In a bioassay, a living organism serves as a detector for toxins—the same way canaries were used in coal mines to detect invisible toxic gases. In this project, water fleas (Daphnia magna), a freshwater crustacean, are used in a bioassay to monitor water quality", time:210, complexity:"easy", integrants:4})
+            CREATE (winds:Project {title: "winds",description:"Find out how wind changes air pressure to bring to objects together in this easy and fun science fair project", time:210, complexity:"easy", integrants:3})
+            CREATE (Stethoscope:Project {title: "Stethoscope",description:"n this science project, you will make three of your own homemade stethoscopes and figure out which stethoscope design works best and why", time:210, complexity:"easy", integrants:4})
+            CREATE (wifi:Project {title: "wifi",description:"In this science project, you will do an experiment to find out which materials cause the biggest drop in signal strength from a wireless router", time:210, complexity:"easy", integrants:5})
+            CREATE (ants:Project {title: "ants",description:"his project is an interesting way to investigate what substances are effective as ant repellents. The goal is to find substances that keep ants away, yet are safe for humans and the environment", time:210, complexity:"hard", integrants:5})
+            CREATE (tsunami:Project {title: "tsunami",description:" In this ocean science project, you will model a tsunami and investigate how wave velocity (speed) depends on water depth. Does it match the mathematical equation", time:210, complexity:"medium", integrants:6})
+            CREATE (biomass:Project {title: "biomass",description:"You can get energy out of biomass by burning it, turning it into a liquid, or by turning it into a gas called biogas", time:210, complexity:"easy", integrants:5})
+            CREATE (paper_fiber:Project {title: "paper_fiber",description:" 	If you're interested in arts and crafts, you might like this project. It uses several alternative, renewable sources of fiber to make paper, and compares the resulting papers for strength and writing quality", time:210, complexity:"hard", integrants:5})
+            CREATE (bug:Project {title: "bug",description:"This science project shows you how you can "ask" a sowbug (or pillbug) a similar question in order to learn about their preferences. Give it a try to find out what types of microenvironments these tiny crustaceans prefer", time:210, complexity:"easy", integrants:5})
+            CREATE (geodes:Project {title: "geodes",description:"in this geology science project, you'll see if the same expression holds true for a rock, but not just any old rock, a special type of rock called a geode, which looks rather plain and ordinary on the outside, but inside can hold crystals and beautiful colors", time:210, complexity:"easy", integrants:4})
+            CREATE (candy_crystals:Project {title: "candy_crystals",description:"In this science fair project you'll learn how to grow your very own rock candy and determine if using seed crystals changes the growth rate of your sugar crystals", time:210, complexity:"hard", integrants:5})
+            CREATE (crater:Project {title: "crater",description:"You will then analyze that data for relationships between a crater's depth and diameter. This is your chance to perform a science project as a NASA researcher would", time:210, complexity:"medium", integrants:5})
+            CREATE (Soil_moisture:Project {title: "Soil_moisture",description:"How can you help conserve water and prevent such waste? One way is to build an electronic soil moisture sensor", time:210, complexity:"medium", integrants:5})
+            CREATE (birds:Project {title: "birds",description:"You'll be able to observe birds at close range, find out what birds inhabit your area, and learn about their seed-eating preferences", time:210, complexity:"easy", integrants:4})
+            CREATE (bristlebot:Project {title: "bristlebot",description:"As robots become more common, it is increasingly important to use "green" energy sources to power them. In this project, you will build and test a popular robot called a bristlebot — a tiny robot made using toothbrushes", time:210, complexity:"easy", integrants:5})
+            CREATE (radiation:Project {title: "radiation",description:"you will investigate how much radiation your cell phone emits ", time:210, complexity:"hard", integrants:5})
             
             CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
             CREATE (Unity:Resource {title: "Unity", specifications: "Software Unity"})
@@ -323,7 +383,9 @@ class Database(object):
             CREATE (Subjects:Resource {title: "subjects", specifications: "Humans for investigation"})
             CREATE (Custom:Resource {title: "custom", specifications: "a custom or suit"})
             CREATE (Raspberry:Resource {title: "raspberry", specifications: "a mini-computer with raspberry"})
+            CREATE (Reagents:Resource {title: "reagents", specifications: "use the neccesary reagents"})
             CREATE (Paper:Resource {title: "Paper", specifications: "Paper to write"})
+            CREATE (electrical_circuit:Resource {title: "electrical_circuit", specifications: "leds,protoboard,jumpers,resistances"})
 
             CREATE (DataStructure:Course {title: "Data Structure",Departament: "Computer Science"})
             CREATE (Physics2:Course {title: "Physics 2",Departament: "Physics"})
@@ -414,7 +476,260 @@ class Database(object):
                 (SunRotation)-[:PROJECT_FOR]->(Physics2),
                 (SunRotation)-[:PROJECT_FOR]->(DataStructure),
                 (SunRotation)-[:PROJECT_FOR]->(Code),
+                (ElasticConstat)-[:USE_A]->(Computer),
+                (ElasticConstat)-[:USE_A]->(Paper),
+                (ElasticConstat)-[:PROJECT_FOR]->(Physics2),
+                (HollywoodPhysics)-[:USE_A]->(Computer),
+                (HollywoodPhysics)-[:PROJECT_FOR]->(Physics2),
+                (BrominationA)-[:USE_A]->(Reagents),
+                (BrominationA)-[:PROJECT_FOR]->(Organic1),
+                (Halogenation)-[:USE_A]->(Reagents),
+                (Halogenation)-[:PROJECT_FOR]->(Organic1),
+                (Hydrogenation)-[:USE_A]->(Reagents),
+                (Hydrogenation)-[:PROJECT_FOR]->(Organic1),
+                (SN2)-[:USE_A]->(Reagents),
+                (SN2)-[:PROJECT_FOR]->(Organic1),
+                (Lisp)-[:USE_A]->(Computer),
+                (revolutions_of_a_stepper)-[:USE_A]->(Computer),
+                (revolutions_of_a_stepper)-[:PROJECT_FOR]->(Assembler),
+                (Angular_velocity)-[:USE_A]->(Computer),
+                (Angular_velocity)-[:PROJECT_FOR]->(Physics2),
+                (Youngs_Modulus_of_a_Marshmallow)-[:USE_A]->(Paper),
+                (Youngs_Modulus_of_a_Marshmallow)-[:PROJECT_FOR]->(Physics2),
+                (Slipping_Tipping)-[:USE_A]->(Computer),
+                (Slipping_Tipping)-[:PROJECT_FOR]->(Physics2),
+                (Rotational_energy)-[:USE_A]->(Computer),
+                (Rotational_energy)-[:PROJECT_FOR]->(Physics2),
+                (Torque)-[:USE_A]->(Paper),
+                (Torque)-[:PROJECT_FOR]->(Physics2),
+                (figures)-[:USE_A]->(Computer),
+                (figures)-[:PROJECT_FOR]->(POO),
+                (Hollywood_Movies)-[:USE_A]->(Computer),
+                (Hollywood_Movies)-[:PROJECT_FOR]->(POO),
+                (riddle)-[:USE_A]->(Computer),
+                (riddle)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (angle)-[:USE_A]->(Computer),
+                (angle)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Mongo)-[:USE_A]->(Computer),
+                (Mongo)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Texas_Holdem)-[:USE_A]->(Computer),
+                (Texas_Holdem)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Menu)-[:USE_A]->(Computer),
+                (Menu)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Quiniela)-[:USE_A]->(Computer),
+                (Quiniela)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Law_Sines)-[:USE_A]->(Computer),
+                (Law_Sines)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (grades)-[:USE_A]->(Computer),
+                (grades)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Frog)-[:USE_A]->(Computer),
+                (Frog)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (canibals_and_missionaries)-[:USE_A]->(Computer),
+                (canibals_and_missionaries)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (bill)-[:USE_A]->(Computer),
+                (bill)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Lost_items)-[:USE_A]->(Computer),
+                (Lost_items)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (frequency)-[:USE_A]->(Computer),
+                (frequency)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (arithmetic)-[:USE_A]->(Computer),
+                (arithmetic)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Series)-[:USE_A]->(Computer),
+                (Series)-[:PROJECT_FOR]->(DataStructure),
+                (Restaurants)-[:USE_A]->(Computer),
+                (Restaurants)-[:PROJECT_FOR]->(DataStructure),
+                (Videogames)-[:USE_A]->(Computer),
+                (Videogames)-[:PROJECT_FOR]->(DataStructure),
+                (rurple)-[:USE_A]->(Computer),
+                (rurple)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Stability)-[:USE_A]->(Paper),
+                (Stability)-[:PROJECT_FOR]->(Physics2),
+                (Angular_Momentum)-[:USE_A]->(Computer),
+                (Angular_Momentum)-[:PROJECT_FOR]->(Physics2),
+                (Center_of_gravity)-[:USE_A]->(Paper),
+                (Center_of_gravity)-[:PROJECT_FOR]->(Physics2),
+                (Sun_Rotation)-[:USE_A]->(Computer),
+                (Sun_Rotation)-[:PROJECT_FOR]->(Physics2),
+                (Torque_Angle)-[:USE_A]->(Paper),
+                (Torque_Angle)-[:PROJECT_FOR]->(Physics2),
+                (Jumping_frogs)-[:USE_A]->(Computer),
+                (Jumping_frogs)-[:PROJECT_FOR]->(Assembler),
+                (word_leak)-[:USE_A]->(Computer),
+                (word_leak)-[:PROJECT_FOR]->(Assembler),
+                (four_in_line)-[:USE_A]->(Computer),
+                (four_in_line)-[:PROJECT_FOR]->(Assembler),
+                (Race)-[:USE_A]->(Computer),
+                (Race)-[:PROJECT_FOR]->(Assembler),
+                (greater_or_lesser)-[:USE_A]->(Computer),
+                (greater_or_lesser)-[:PROJECT_FOR]->(Assembler),
+                (2_Pics_1_Word)-[:USE_A]->(Computer),
+                (2_Pics_1_Word)-[:PROJECT_FOR]->(Assembler),
+                (Battleship)-[:USE_A]->(Computer),
+                (Battleship)-[:PROJECT_FOR]->(Assembler),
+                (Minesweep)-[:USE_A]->(Computer),
+                (Minesweep)-[:PROJECT_FOR]->(Assembler),
+                (Rabbit_Chase)-[:USE_A]->(Computer),
+                (Rabbit_Chase)-[:PROJECT_FOR]->(Assembler),
+                (GO)-[:USE_A]->(Computer),
+                (GO)-[:PROJECT_FOR]->(Assembler),
+                (pair_odd)-[:USE_A]->(Computer),
+                (pair_odd)-[:PROJECT_FOR]->(Assembler),
+                (Uplift_count)-[:USE_A]->(Computer),
+                (Uplift_count)-[:PROJECT_FOR]->(Assembler),
+                (chocolates)-[:USE_A]->(Paper),
+                (chocolates)-[:PROJECT_FOR]->(chemistry1),
+                (autobiography)-[:USE_A]->(Paper),
+                (autobiography)-[:PROJECT_FOR]->(Global_citizenship),
+                (elevator)-[:USE_A]->(electrical_circuit),
+                (elevator)-[:PROJECT_FOR]->(electrical_circuits),
+                (car_video_game)-[:USE_A]->(electrical_circuit),
+                (car_video_game)-[:PROJECT_FOR]->(electrical_circuits),
+                (Pressure)-[:USE_A]->(Paper),
+                (Pressure)-[:PROJECT_FOR]->(statistics1),
+                (classical_music)-[:USE_A]->(Computer),
+                (classical_music)-[:PROJECT_FOR]->(statistics1),
+                (caffeine)-[:USE_A]->(Paper),
+                (caffeine)-[:PROJECT_FOR]->(statistics1),
+                (decibels)-[:USE_A]->(Computer),
+                (decibels)-[:PROJECT_FOR]->(statistics1),
+                (nicotine)-[:USE_A]->(Computer),
+                (nicotine)-[:PROJECT_FOR]->(statistics1),
+                (glues)-[:USE_A]->(Paper),
+                (glues)-[:PROJECT_FOR]->(statistics1),
+                (blood_sugar)-[:USE_A]->(Paper),
+                (blood_sugar)-[:PROJECT_FOR]->(statistics1),
+                (drinks)-[:USE_A]->(Computer),
+                (drinks)-[:PROJECT_FOR]->(statistics1),
+                (paint)-[:USE_A]->(Computer),
+                (paint)-[:PROJECT_FOR]->(statistics1),
+                (diet_coke)-[:USE_A]->(Paper),
+                (diet_coke)-[:PROJECT_FOR]->(statistics1),
+                (milks)-[:USE_A]->(Paper),
+                (milks)-[:PROJECT_FOR]->(statistics1),
+                (batteries)-[:USE_A]->(Paper),
+                (batteries)-[:PROJECT_FOR]->(statistics1),
+                (Descending_count)-[:USE_A]->(Computer),
+                (Descending_count)-[:PROJECT_FOR]->(Assembler),
+                (Active_bit_shift)-[:USE_A]->(Computer),
+                (Active_bit_shift)-[:PROJECT_FOR]->(Assembler),
+                (Inactive_bit_shift)-[:USE_A]->(Computer),
+                (Inactive_bit_shift)-[:PROJECT_FOR]->(Assembler),
+                (Bit_accumulator)-[:USE_A]->(Computer),
+                (Bit_accumulator)-[:PROJECT_FOR]->(Assembler),
+                (traffic_light)-[:USE_A]->(Computer),
+                (traffic_light)-[:PROJECT_FOR]->(Assembler),
+                (stone_paper_or_scissors)-[:USE_A]->(Computer),
+                (stone_paper_or_scissors)-[:PROJECT_FOR]->(Assembler),
+                (AU)-[:USE_A]->(Computer),
+                (AU)-[:PROJECT_FOR]->(Assembler),
+                (Turn_signals)-[:USE_A]->(Computer),
+                (Turn_signals)-[:PROJECT_FOR]->(Assembler),
+                (Comparator_of_Numbers)-[:USE_A]->(Computer),
+                (Comparator_of_Numbers)-[:PROJECT_FOR]->(Assembler),
+                (Totito)-[:USE_A]->(Computer),
+                (Totito)-[:PROJECT_FOR]->(Assembler),
+                (LLS)-[:USE_A]->(Computer),
+                (LLS)-[:PROJECT_FOR]->(Assembler),
+                (LRS)-[:USE_A]->(Computer),
+                (LRS)-[:PROJECT_FOR]->(Assembler),
+                (Address_decoder)-[:USE_A]->(Computer),
+                (Address_decoder)-[:PROJECT_FOR]->(Assembler),
+                (Binary_to_vowel_converter)-[:USE_A]->(Computer),
+                (Binary_to_vowel_converter)-[:PROJECT_FOR]->(Assembler),
+                (Car_stopping_Distance_on_a_Tabletop)-[:USE_A]->(Computer),
+                (Car_stopping_Distance_on_a_Tabletop)-[:PROJECT_FOR]->(Physics1),
+                (The_energetics_of_a_bouncing ball)-[:USE_A]->(Computer),
+                (The_energetics_of_a_bouncing ball)-[:PROJECT_FOR]->(Physics1),
+                (Cotton_buds)-[:USE_A]->(Paper),
+                (Cotton_buds)-[:PROJECT_FOR]->(Physics1),
+                (Bernoulli_Law)-[:USE_A]->(Paper),
+                (Bernoulli_Law)-[:PROJECT_FOR]->(Physics1),
+                (Archimedes_Principle)-[:USE_A]->(Computer),
+                (Archimedes_Principle)-[:PROJECT_FOR]->(Physics1),
+                (Radio)-[:USE_A]->(Computer),
+                (Radio)-[:PROJECT_FOR]->(DataStructure),
+                (Calculator)-[:USE_A]->(Computer),
+                (Calculator)-[:PROJECT_FOR]->(DataStructure),
+                (Sorts)-[:USE_A]->(Computer),
+                (Sorts)-[:PROJECT_FOR]->(DataStructure),
+                (Design_patterns)-[:USE_A]->(Computer),
+                (Design_patterns)-[:PROJECT_FOR]->(DataStructure),
+                (Simpy)-[:USE_A]->(Computer),
+                (Simpy)-[:PROJECT_FOR]->(DataStructure),
+                (Cards)-[:USE_A]->(Computer),
+                (Cards)-[:PROJECT_FOR]->(DataStructure),
+                (Dictionary)-[:USE_A]->(Computer),
+                (Dictionary)-[:PROJECT_FOR]->(DataStructure),
+                (movies)-[:USE_A]->(Computer),
+                (movies)-[:PROJECT_FOR]->(DataStructure),
+                (Places)-[:USE_A]->(Computer),
+                (Places)-[:PROJECT_FOR]->(DataStructure),
+                (Hospital)-[:USE_A]->(Computer),
+                (Hospital)-[:PROJECT_FOR]->(DataStructure),
+                (Dicc)-[:USE_A]->(Computer),
+                (Dicc)-[:PROJECT_FOR]->(DataStructure),
+                (Hexa)-[:USE_A]->(Computer),
+                (Hexa)-[:PROJECT_FOR]->(POO),
+                (Planes)-[:USE_A]->(Computer),
+                (Planes)-[:PROJECT_FOR]->(POO),
+                (students)-[:USE_A]->(Computer),
+                (students)-[:PROJECT_FOR]->(POO),
+                (cinema)-[:USE_A]->(Computer),
+                (cinema)-[:PROJECT_FOR]->(POO),
+                (library)-[:USE_A]->(Computer),
+                (library)-[:PROJECT_FOR]->(POO),
+                (ipod)-[:USE_A]->(Computer),
+                (ipod)-[:PROJECT_FOR]->(POO),
+                (GUI)-[:USE_A]->(Computer),
+                (GUI)-[:PROJECT_FOR]->(POO),
+                (guards)-[:USE_A]->(Computer),
+                (guards)-[:PROJECT_FOR]->(POO),
+                (radioactive)-[:USE_A]->(Computer),
+                (radioactive)-[:PROJECT_FOR]->(POO),
+                (ticket)-[:USE_A]->(Computer),
+                (ticket)-[:PROJECT_FOR]->(POO),
+                (Lisp)-[:PROJECT_FOR]->(DataStructure),
+                (Recommendation)-[:USE_A]->(Computer),
+                (Recommendation)-[:PROJECT_FOR]->(DataStructure),
+                (Sodium)-[:USE_A]->(Reagents),
+                (Sodium)-[:PROJECT_FOR]->(Organic1),
+                (Sanitary_Napkins_absorption)-[:USE_A]->(Paper),
+                (Sanitary_Napkins_absorption)-[:PROJECT_FOR]->(statistics1),
+                (Aluminum_Recycling)-[:USE_A]->(Reagents),
+                (Aluminum_Recycling)-[:PROJECT_FOR]->(Organic1),
+                (Inhibition_Klebsiella)-[:USE_A]->(Reagents),
+                (Inhibition_Klebsiella)-[:PROJECT_FOR]->(forest_ecology),
                 (Gestalt)-[:USE_A]->(Computer),
+                (biomimic)-[:USE_A]->(Paper),
+                (biomimic)-[:PROJECT_FOR]->(life_sciences),
+                (Fable)-[:USE_A]->(Paper),
+                (Fable)-[:PROJECT_FOR]->(Design_Thinking),
+                (Reports)-[:USE_A]->(Computer),
+                (Reports)-[:PROJECT_FOR]->(algorithms_and_basic_programming),
+                (Sonic_Pi)-[:USE_A]->(Raspberry),
+                (Sonic_Pi)-[:PROJECT_FOR]->(Design_Thinking),
+                (Pokultura)-[:USE_A]->(Paper),
+                (Pokultura)-[:PROJECT_FOR]->(Design_Thinking),
+                (mechanical_workshop)-[:USE_A]->(Computer),
+                (mechanical_workshop)-[:PROJECT_FOR]->(POO),
+                (political_parties)-[:USE_A]->(Paper),
+                (political_parties)-[:PROJECT_FOR]->(Global_citizenship),
+                (massacres_of_the_jungle)-[:USE_A]->(Paper),
+                (massacres_of_the_jungle)-[:PROJECT_FOR]->(Global_citizenship),
+                (Simon_says)-[:USE_A]->(Computer),
+                (Simon_says)-[:PROJECT_FOR]->(Assembler),
+                (slot_machines)-[:USE_A]->(Computer),
+                (slot_machines)-[:PROJECT_FOR]->(Assembler),
+                (Alarm_clock)-[:USE_A]->(Computer),
+                (Alarm_clock)-[:PROJECT_FOR]->(Assembler),
+                (Timer)-[:USE_A]->(Computer),
+                (Timer)-[:PROJECT_FOR]->(Assembler),
+                (Piano)-[:USE_A]->(Computer),
+                (Piano)-[:PROJECT_FOR]->(Assembler),
+                (Stepper)-[:USE_A]->(Computer),
+                (Stepper)-[:PROJECT_FOR]->(Assembler),
+                (ALU)-[:USE_A]->(Computer),
+                (ALU)-[:PROJECT_FOR]->(Assembler),
                 (Gestalt)-[:PROJECT_FOR]->(Humanity),
                 (SunRotation)-[:USE_A]->(Computer),
                 (Gestalt)-[:USE_A]->(Subjects),
