@@ -298,7 +298,21 @@ class Database(object):
             CREATE (performance:Project {title: "performance",description:"Percentage of reaction performance aluminum recycling", time:210, complexity:"hard", integrants:4})
             CREATE (Copper:Project {title: "Copper",description:"Percentage of reaction performance, Copper chemical transformations", time:210, complexity:"hard", integrants:4})
             CREATE (physical_properties:Project {title: "physical_properties",description:"Relationship between chemical bonds and physical properties", time:210, complexity:"hard", integrants:4})
+            CREATE (parking_lot:Project {title: "parking_lot",description:"with knowledge of electronics simulate a parking lot", time:210, complexity:"hard", integrants:5})
+            CREATE (tetris:Project {title: "tetris",description:"simulation of the game tetris", time:210, complexity:"hard", integrants:1})
+            CREATE (water_dispenser:Project {title: "water_dispenser",description:"with knowledge of electronics make a water_dispenser", time:210, complexity:"hard", integrants:5})
+            CREATE (food_dispenser:Project {title: "food_dispenser",description:"Write a short story", time:210, complexity:"hard", integrants:5})
+            CREATE (Remote_car:Project {title: "remote_car",description:"remote control car", time:210, complexity:"hard", integrants:2})
+            CREATE (home:Project {title: "home",description:"home automation", time:210, complexity:"hard", integrants:5})
+            CREATE (Key_finder:Project {title: "Key_finder",description:"with knowledge of electronics create a key finder", time:210, complexity:"hard", integrants:3})
+            CREATE (irrigation_system:Project {title: "irrigation_system",description:"with knowledge of electronics create an irrigation system", time:210, complexity:"hard", integrants:3})
+            CREATE (Advertisements:Project {title: "advertisements",description:"create an advertising campaign to sell a product", time:210, complexity:"easy", integrants:5})
+            CREATE (product:Project {title: "product",description:"create your own product and sell", time:210, complexity:"hard", integrants:5})
+            CREATE (DNA_extraction:Project {title: "DNA_extraction",description:"make your own DNA extraction kit from household chemicals and use it to extract DNA from strawberries", time:210, complexity:"hard", integrants:1})
+            CREATE (green_detergents:Project {title: "green_detergents",description:"compare the toxicity of "green" and conventional liquid detergents using worms as test organisms", time:210, complexity:"hard", integrants:2})
+            CREATE (acid_rain:Project {title: "acid_rain",description:"How does acid rain affect aquatic ecosystems", time:210, complexity:"hard", integrants:2})
 
+            
             
             CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
             CREATE (Unity:Resource {title: "Unity", specifications: "Software Unity"})
@@ -358,7 +372,12 @@ class Database(object):
             CREATE (physical_chemistry:Course {title: "physical_chemistry",Departament:"chemistry"})
             CREATE (dynamic_mechanics:Course {title: "dynamic_mechanics",Departament:"mechanics"})
             CREATE (draw_CAD:Course {title: "draw_CAD",Departament:"Design"})
-            
+            CREATE (signals_processing:Course {title: "signals_processing",Departament:"electronics"})
+            CREATE (quality_managment:Course {title: "quality_managment",Departament:"chemistry"})
+            CREATE (industrial_biological_processes:Course {title: "industrial_biological_processes",Departament:"chemistry"})
+            CREATE (pharmacognosy:Course {title: "pharmacognosy",Departament:"chemistry"})
+            CREATE (food_chemistry:Course {title: "food_chemistry",Departament:"chemistry"})
+            CREATE (applied_neuroscience:Course {title: "applied_neuroscience",Departament:"chemistry"})
             
             CREATE
                 (ProjectGenerator)-[:PROJECT_FOR]->(DataStructure),
