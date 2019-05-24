@@ -84,6 +84,12 @@ To run ProjectGenerator you must do the following steps:
 
 	7. Enjoy Project Generator software
 
+	ADVICES:
+
+		1. If you want a recomendations and if you haven´t seen a project it will show you nothing. 
+		2. Be patient getting the recomendations because the program is getting the data from the database
+		3. You will be able to see the recomendations on the CMD and in the GUI
+
 If you find problems running this software write us to con18409@uvg.edu.gt
 
 

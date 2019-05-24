@@ -189,7 +189,7 @@ class Database(object):
             CREATE (four_in_line:Project {title: "four_in_line",description:"Game simulation using electronic components and ARM language", time:210, complexity:"hard", integrants:2})
             CREATE (Race:Project {title: "Race_with_obstacles",description:"Game simulation using electronic components and ARM language, the game consist in get to the goal first", time:510, complexity:"hard", integrants:2})
             CREATE (greater_or_lesser:Project {title: "greater_or_lesser",description:"Game simulation using electronic components and ARM language, the game consist in roll two dice and win the one with the largest number", time:320, complexity:"hard", integrants:2})
-            CREATE (2_Pics_1_Word:Project {title: "2_Pics_1_Word",description:"Game simulation using electronic components and ARM language, the game consist in show images that have a common theme and below disordered words which must be ordered in relation to the images", time:210, complexity:"hard", integrants:3})
+            CREATE (_Pics__Word:Project {title: "2_Pics_1_Word",description:"Game simulation using electronic components and ARM language, the game consist in show images that have a common theme and below disordered words which must be ordered in relation to the images", time:210, complexity:"hard", integrants:3})
             CREATE (Battleship:Project {title: "Battleship",description:"Game simulation using electronic components and ARM language, recreating the famous game of the same name", time:210, complexity:"hard", integrants:3})
             CREATE (Minesweep:Project {title: "Minesweep",description:"Game simulation using electronic components and ARM language, recreating the famous game of the same name", time:310, complexity:"hard", integrants:3})
             CREATE (Rabbit_Chase:Project {title: "Rabbit_Chase",description:"Game simulation using electronic components and ARM language, recreating the famous game of the same name", time:210, complexity:"hard", integrants:3})
@@ -211,7 +211,7 @@ class Database(object):
             CREATE (Address_decoder:Project {title: "Address_decoder",description:"Design and simulate a circuit that decodes a 3-bit binary address and selects the position correct cell within a memory", time:210, complexity:"hard", integrants:3})
             CREATE (Binary_to_vowel_converter:Project {title: "Binary_to_vowel_converter",description:"Design and simulate a circuit that shows the vowels A, E, I, O, U. A binary number of 3 bits represents each vowel", time:210, complexity:"hard", integrants:3})
             CREATE (Car_stopping_Distance_on_a_Tabletop:Project {title: "Car_stopping_Distance_on_a_Tabletop",description:"Write a short story", time:210, complexity:"hard", integrants:5})
-            CREATE (The_energetics_of_a_bouncing ball:Project {title: "The_energetics_of_a_bouncing ball",description:"calculating the energy of a bouncing ball", time:210, complexity:"hard", integrants:4})
+            CREATE (The_energetics_of_a_bouncing:Project {title: "The_energetics_of_a_bouncing ball",description:"calculating the energy of a bouncing ball", time:210, complexity:"hard", integrants:4})
             CREATE (Cotton_buds:Project {title: "Cotton_buds_momentum_and_impulse",description:"determinating momentum and impulse of cotton buds", time:510, complexity:"easy", integrants:5})
             CREATE (Bernoulli_Law:Project {title: "Bernoulli_Law",description:"A Bernoulli's Law Lab in a Bottle", time:210, complexity:"hard", integrants:5})
             CREATE (Archimedes_Principle:Project {title: "Archimedes_Principle",description:"Microcomputer-Based Laboratory for Archimedes Principle and Density of Liquids", time:210, complexity:"hard", integrants:5})
@@ -312,7 +312,7 @@ class Database(object):
             CREATE (Advertisements:Project {title: "advertisements",description:"create an advertising campaign to sell a product", time:210, complexity:"easy", integrants:5})
             CREATE (product:Project {title: "product",description:"create your own product and sell", time:210, complexity:"hard", integrants:5})
             CREATE (DNA_extraction:Project {title: "DNA_extraction",description:"make your own DNA extraction kit from household chemicals and use it to extract DNA from strawberries", time:210, complexity:"hard", integrants:1})
-            CREATE (green_detergents:Project {title: "green_detergents",description:"compare the toxicity of "green" and conventional liquid detergents using worms as test organisms", time:210, complexity:"hard", integrants:2})
+            CREATE (green_detergents:Project {title: "green_detergents",description:"compare the toxicity of green and conventional liquid detergents using worms as test organisms", time:210, complexity:"hard", integrants:2})
             CREATE (acid_rain:Project {title: "acid_rain",description:"How does acid rain affect aquatic ecosystems", time:210, complexity:"hard", integrants:2})
             CREATE (Soil_erosion:Project {title: "Soil_erosion",description:"can plants stop soil erosion?", time:210, complexity:"hard", integrants:5})
             CREATE (Landslides:Project {title: "Landslides",description:"What causes rocks to slide down a slope", time:210, complexity:"medium", integrants:3})
@@ -365,13 +365,13 @@ class Database(object):
             CREATE (tsunami:Project {title: "tsunami",description:" In this ocean science project, you will model a tsunami and investigate how wave velocity (speed) depends on water depth. Does it match the mathematical equation", time:210, complexity:"medium", integrants:6})
             CREATE (biomass:Project {title: "biomass",description:"You can get energy out of biomass by burning it, turning it into a liquid, or by turning it into a gas called biogas", time:210, complexity:"easy", integrants:5})
             CREATE (paper_fiber:Project {title: "paper_fiber",description:" 	If you're interested in arts and crafts, you might like this project. It uses several alternative, renewable sources of fiber to make paper, and compares the resulting papers for strength and writing quality", time:210, complexity:"hard", integrants:5})
-            CREATE (bug:Project {title: "bug",description:"This science project shows you how you can "ask" a sowbug (or pillbug) a similar question in order to learn about their preferences. Give it a try to find out what types of microenvironments these tiny crustaceans prefer", time:210, complexity:"easy", integrants:5})
+            CREATE (bug:Project {title: "bug",description:"This science project shows you how you can ask a sowbug (or pillbug) a similar question in order to learn about their preferences. Give it a try to find out what types of microenvironments these tiny crustaceans prefer", time:210, complexity:"easy", integrants:5})
             CREATE (geodes:Project {title: "geodes",description:"in this geology science project, you'll see if the same expression holds true for a rock, but not just any old rock, a special type of rock called a geode, which looks rather plain and ordinary on the outside, but inside can hold crystals and beautiful colors", time:210, complexity:"easy", integrants:4})
             CREATE (candy_crystals:Project {title: "candy_crystals",description:"In this science fair project you'll learn how to grow your very own rock candy and determine if using seed crystals changes the growth rate of your sugar crystals", time:210, complexity:"hard", integrants:5})
             CREATE (crater:Project {title: "crater",description:"You will then analyze that data for relationships between a crater's depth and diameter. This is your chance to perform a science project as a NASA researcher would", time:210, complexity:"medium", integrants:5})
             CREATE (Soil_moisture:Project {title: "Soil_moisture",description:"How can you help conserve water and prevent such waste? One way is to build an electronic soil moisture sensor", time:210, complexity:"medium", integrants:5})
             CREATE (birds:Project {title: "birds",description:"You'll be able to observe birds at close range, find out what birds inhabit your area, and learn about their seed-eating preferences", time:210, complexity:"easy", integrants:4})
-            CREATE (bristlebot:Project {title: "bristlebot",description:"As robots become more common, it is increasingly important to use "green" energy sources to power them. In this project, you will build and test a popular robot called a bristlebot — a tiny robot made using toothbrushes", time:210, complexity:"easy", integrants:5})
+            CREATE (bristlebot:Project {title: "bristlebot",description:"As robots become more common, it is increasingly important to use green energy sources to power them. In this project, you will build and test a popular robot called a bristlebot — a tiny robot made using toothbrushes", time:210, complexity:"easy", integrants:5})
             CREATE (radiation:Project {title: "radiation",description:"you will investigate how much radiation your cell phone emits ", time:210, complexity:"hard", integrants:5})
             
             CREATE (Computer:Resource {title: "Computer", specifications: "A computer with an ide to code"})
@@ -765,8 +765,8 @@ class Database(object):
                 (Race)-[:PROJECT_FOR]->(Assembler),
                 (greater_or_lesser)-[:USE_A]->(Computer),
                 (greater_or_lesser)-[:PROJECT_FOR]->(Assembler),
-                (2_Pics_1_Word)-[:USE_A]->(Computer),
-                (2_Pics_1_Word)-[:PROJECT_FOR]->(Assembler),
+                (_Pics__Word)-[:USE_A]->(Computer),
+                (_Pics__Word)-[:PROJECT_FOR]->(Assembler),
                 (Battleship)-[:USE_A]->(Computer),
                 (Battleship)-[:PROJECT_FOR]->(Assembler),
                 (Minesweep)-[:USE_A]->(Computer),
@@ -841,8 +841,8 @@ class Database(object):
                 (Binary_to_vowel_converter)-[:PROJECT_FOR]->(Assembler),
                 (Car_stopping_Distance_on_a_Tabletop)-[:USE_A]->(Computer),
                 (Car_stopping_Distance_on_a_Tabletop)-[:PROJECT_FOR]->(Physics1),
-                (The_energetics_of_a_bouncing ball)-[:USE_A]->(Computer),
-                (The_energetics_of_a_bouncing ball)-[:PROJECT_FOR]->(Physics1),
+                (The_energetics_of_a_bouncing)-[:USE_A]->(Computer),
+                (The_energetics_of_a_bouncing)-[:PROJECT_FOR]->(Physics1),
                 (Cotton_buds)-[:USE_A]->(Paper),
                 (Cotton_buds)-[:PROJECT_FOR]->(Physics1),
                 (Bernoulli_Law)-[:USE_A]->(Paper),

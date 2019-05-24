@@ -107,7 +107,13 @@ class Connected(Screen):
 
 	def recomend(self):
 		project = ProjectGenerator()
-		self.ids.project_list.adapter = ListAdapter(data=project.getRecomendations(project.encriptPassword(self.user)),cls=ListItemButton) 
+		lista = project.getRecomendations(project.encriptPassword(self.user))
+		for node in lista:
+			print(node)
+		toShow	= []
+		for i in range(0,20):
+			toShow.append(lista[i])
+		self.ids.project_list.adapter = ListAdapter(data=toShow	,cls=ListItemButton) 
 
 	def delete(self):
 		project = ProjectGenerator()
